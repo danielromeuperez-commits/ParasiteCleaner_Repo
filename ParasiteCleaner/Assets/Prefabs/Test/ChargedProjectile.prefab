@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8347265124495574429}
   - component: {fileID: 6984946772794322948}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: ChargedProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -8533303283683956829, guid: 7560643a23c081048b38bdb3f4fe892f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
