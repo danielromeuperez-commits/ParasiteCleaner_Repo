@@ -4,17 +4,17 @@ using System.Collections;
 
 public class BigShot : MonoBehaviour
 {
-    [Header("Proyectil cargado")]
+    [Header("Projectile")]
     public GameObject chargedProjectile;
     public Transform shootPoint;
 
-    [Header("Carga")]
-    public float chargeTime = 5f;
+    [Header("Charge Config")]
+    public float chargeTime = 3f;
     public Color chargeColor = Color.red;
     public float flashDuration = 0.5f;
     public SpriteRenderer spriteRenderer;
 
-    // Referencia al jugador para saber la dirección
+    [Header("Player")]
     public PlayerController2D player;
 
     private bool isCharging = false;
@@ -31,7 +31,7 @@ public class BigShot : MonoBehaviour
     {
         if (kb == null) return;
 
-        // Inicia la carga
+        // Inicia carga
         if (kb.spaceKey.wasPressedThisFrame)
         {
             isCharging = true;
@@ -52,17 +52,20 @@ public class BigShot : MonoBehaviour
             }
         }
 
-        // Soltar la tecla
+        // Soltar tecla
         if (isCharging && kb.spaceKey.wasReleasedThisFrame)
         {
             isCharging = false;
 
-            // Disparar proyectil cargado si estaba listo
             if (chargedReady && chargedProjectile != null && shootPoint != null && player != null)
             {
+                // Instanciar proyectil
                 GameObject proj = Instantiate(chargedProjectile, shootPoint.position, Quaternion.identity);
                 Projectile projScript = proj.GetComponent<Projectile>();
-                projScript.isFacingRight = player.isFacingRight; // <-- clave
+
+                projScript.isFacingRight = player.isFacingRight;
+                projScript.damage = 20; // daño del proyectil cargado
+
             }
 
             chargedReady = false;

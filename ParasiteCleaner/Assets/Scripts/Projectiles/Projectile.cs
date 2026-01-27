@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
     [Header("Projectile Config")]
     [SerializeField] float speed;
     public bool isFacingRight;
+    public int damage;
 
     void Update()
     {
@@ -13,7 +14,6 @@ public class Projectile : MonoBehaviour
 
     void ProjectileMove()
     {
-        // Mover en mundo global según la dirección
         if (isFacingRight)
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         else
@@ -22,9 +22,13 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "CamConfiner" && collision.gameObject.tag != null)
+        Enemy enemy = collision.GetComponent<Enemy>();
+        if (enemy != null)
         {
-            gameObject.SetActive(false);
+            enemy.TakeDamage(damage); // Hacer daño
         }
+
+        // Desactivar el proyectil en cualquier caso
+        gameObject.SetActive(false);
     }
 }
