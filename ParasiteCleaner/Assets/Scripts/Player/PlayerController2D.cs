@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor.Experimental;
 using UnityEngine;
@@ -9,17 +10,18 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] bool isGrounded;
-    [SerializeField] bool isFacingRight;
+    [SerializeField] public bool isFacingRight;
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundCheckRadius;
     [SerializeField] LayerMask groundLayer;
-
+    [Header("Coyote time")]
+    [SerializeField] float coyoteTime =0.2f;
+    [SerializeField] float coyoteTimeCounter;
     [Header("Shoot config")]
     [SerializeField] GameObject Projectile;
     [SerializeField] Transform Shootpoint;
-    [SerializeField] float shootPoint;
     [SerializeField] bool canShoot;
-
+    [SerializeField] float shootCooldown; 
     //Refs generales
     Rigidbody2D playerRb;
     PlayerInput input;
@@ -42,11 +44,19 @@ public class PlayerController2D : MonoBehaviour
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        // Coyote time
+        if (isGrounded)
+            coyoteTimeCounter = coyoteTime; // reinicia cuando estás en el suelo
+        else
+            coyoteTimeCounter -= Time.deltaTime;
+
+        // Flip
         if (moveInput.x > 0 && !isFacingRight) Flip();
         if (moveInput.x < 0 && isFacingRight) Flip();
     }  
         
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Movement();
     }
@@ -56,12 +66,55 @@ public class PlayerController2D : MonoBehaviour
         playerRb.linearVelocity = new Vector2(moveInput.x * speed, playerRb.linearVelocity.y);
     }
 
+    void Jump()
+    {
+        playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+    void Shoot()
+    {
+        if (canShoot)
+        {
+            StartCoroutine(ShootCoroutine());
+        }
+    }
+
+    IEnumerator ShootCoroutine()
+    {
+        canShoot = false; // Evita disparar otra vez mientras la corrutina está activa
+
+        int shots = 3; // Numero de proyectiles por disparo
+        float delay = 0.2f; // Tiempo entre cada proyectil (ajusta según necesites)
+
+        for (int i = 0; i < shots; i++)
+        {
+            // Instanciamos el proyectil
+            GameObject proj = Instantiate(Projectile, Shootpoint.position, Quaternion.identity);
+
+            // Ajustamos la dirección del proyectil
+            Projectile projScript = proj.GetComponent<Projectile>();
+            projScript.isFacingRight = isFacingRight;
+
+            yield return new WaitForSeconds(delay);
+        }
+
+        // Esperamos el cooldown antes de poder disparar de nuevo
+        yield return new WaitForSeconds(shootCooldown);
+        canShoot = true;
+    }
+
+
+    void resetShoot()
+    {
+        canShoot = true;
+    }
+
     void Flip()
     {
-        Vector3 currentScale = transform.localScale; //Almacén temporal de la escala del objeto
-        currentScale.x *= -1; //Invertir el valor en X
-        transform.localScale = currentScale; //Le devolvemos la escala al objeto con el valor en X inverso
-        isFacingRight = !isFacingRight; //Decirle al bool que cambie al valor contrario
+        isFacingRight = !isFacingRight;
+        Vector3 s = transform.localScale;
+        s.x *= -1;
+        transform.localScale = s;
     }
 
     #region Input Methods
@@ -71,6 +124,18 @@ public class PlayerController2D : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
     }
 
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed && coyoteTimeCounter > 0f)
+        {
+            Jump();                   // Aplica la fuerza de salto
+            coyoteTimeCounter = 0f;    // Evita saltos dobles usando coyote time
+        }
+    }
 
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed && canShoot) Shoot();
+    }
     #endregion
 }
