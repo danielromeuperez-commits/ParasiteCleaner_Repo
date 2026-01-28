@@ -1397,17 +1397,17 @@ ScriptedImporter:
     spriteBone:
     - name: pie1_adelante
       guid: ae135b51915b6d840ae1a2934290d36d
-      position: {x: 84.138016, y: -0.000036690573, z: 0}
-      rotation: {x: 0, y: 0, z: 0.025754303, w: 0.99966836}
-      length: 59.6785
+      position: {x: 84.13802, y: 0.0000075582693, z: 0}
+      rotation: {x: 0, y: 0, z: 0.025754085, w: 0.99966836}
+      length: 59.67851
       parentId: 3
       color:
         serializedVersion: 2
         rgba: 4278255488
     - name: pierna1_gemelos
       guid: ce042f796e023704e9afad77762d826d
-      position: {x: 244.18622, y: 0.00003746422, z: 0}
-      rotation: {x: 0, y: 0, z: 0.0007911473, w: 0.9999997}
+      position: {x: 244.18623, y: 0.00003854776, z: 0}
+      rotation: {x: 0, y: 0, z: 0.0008097284, w: 0.9999997}
       length: 236.5097
       parentId: 2
       color:
@@ -1416,17 +1416,17 @@ ScriptedImporter:
     - name: pierna1_muslo
       guid: ba92257c6abc032418222f1049367301
       position: {x: 232.90143, y: 492.51666, z: 0}
-      rotation: {x: 0, y: 0, z: 0.8377127, w: -0.54611135}
-      length: 244.18625
+      rotation: {x: 0, y: 0, z: 0.83771265, w: -0.5461113}
+      length: 244.18628
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294901760
     - name: pie1_atras
       guid: af5548e3280f34944a3b61c45f0d71a3
-      position: {x: 236.5097, y: 0.00003930822, z: 0}
-      rotation: {x: 0, y: 0, z: 0.8062108, w: 0.5916285}
-      length: 84.13802
+      position: {x: 236.50969, y: -0.008762545, z: 0}
+      rotation: {x: 0, y: 0, z: 0.8061998, w: 0.59164345}
+      length: 84.13804
       parentId: 1
       color:
         serializedVersion: 2
@@ -2776,27 +2776,27 @@ ScriptedImporter:
     spriteBone:
     - name: pie2_adelante
       guid: ce0217617dae8e94d8a8e5e23513c41b
-      position: {x: 98.96072, y: -0.000007966026, z: 0}
-      rotation: {x: 0, y: 0, z: 0.070494674, w: 0.9975122}
-      length: 71.1201
+      position: {x: 98.96081, y: -0.000010225811, z: 0}
+      rotation: {x: 0, y: 0, z: 0.07049463, w: 0.99751216}
+      length: 71.12011
       parentId: 2
       color:
         serializedVersion: 2
         rgba: 4286578943
     - name: pierna2_gemelos
       guid: 4120f387b74b9b04793196d713eb25fb
-      position: {x: 224.73814, y: 0.00006170413, z: 0}
-      rotation: {x: 0, y: 0, z: -0.08172203, w: 0.99665517}
-      length: 204.39505
+      position: {x: 224.73824, y: -0.00010124581, z: 0}
+      rotation: {x: 0, y: 0, z: -0.08172223, w: 0.99665517}
+      length: 204.39507
       parentId: 3
       color:
         serializedVersion: 2
         rgba: 4294934528
     - name: pie2_atras
       guid: 4de3dc9a02e96564c9b0f76a8b83060a
-      position: {x: 204.39508, y: -0.00002553478, z: 0}
-      rotation: {x: 0, y: 0, z: 0.78983027, w: 0.6133256}
-      length: 98.96069
+      position: {x: 204.39507, y: -0.000026076286, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7898303, w: 0.6133255}
+      length: 98.96077
       parentId: 1
       color:
         serializedVersion: 2
@@ -2804,7 +2804,7 @@ ScriptedImporter:
     - name: pierna2_muslos
       guid: 81a2fa6478c55484e8200e509dfb0739
       position: {x: 139.9516, y: 469.1845, z: 0}
-      rotation: {x: 0, y: 0, z: 0.7676057, w: -0.6409224}
+      rotation: {x: 0, y: 0, z: 0.76760554, w: -0.6409226}
       length: 224.73807
       parentId: -1
       color:
@@ -4096,9 +4096,9 @@ ScriptedImporter:
     spriteBone:
     - name: "ca\xF1on"
       guid: 62ed04d5203ffa04bb5c7b63337c2a80
-      position: {x: 86.875244, y: 252.42603, z: 0}
-      rotation: {x: 0, y: 0, z: 0.7395684, w: -0.67308146}
-      length: 243.9794
+      position: {x: 86.87579, y: 252.42569, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7395684, w: -0.6730815}
+      length: 243.97945
       parentId: -1
       color:
         serializedVersion: 2
@@ -5129,9 +5129,9 @@ ScriptedImporter:
     spriteBone:
     - name: brazo1
       guid: 6e53aa1f0a2be0a468bc41cd6422df2d
-      position: {x: 62.00409, y: 115.41388, z: 0}
-      rotation: {x: 0, y: 0, z: 0.83355844, w: -0.5524313}
-      length: 97.03839
+      position: {x: 62.004578, y: 115.4137, z: 0}
+      rotation: {x: 0, y: 0, z: 0.83355844, w: -0.55243134}
+      length: 97.03841
       parentId: -1
       color:
         serializedVersion: 2
@@ -6047,9 +6047,9 @@ ScriptedImporter:
     spriteBone:
     - name: pecho
       guid: f16020078030cc74388ca75608a7cded
-      position: {x: 168.82019, y: 16.035034, z: 0}
-      rotation: {x: 0, y: 0, z: 0.7451283, w: 0.66692126}
-      length: 103.753006
+      position: {x: 169.96582, y: 28.638367, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7542916, w: 0.6565396}
+      length: 91.388374
       parentId: -1
       color:
         serializedVersion: 2
@@ -6803,27 +6803,27 @@ ScriptedImporter:
     spriteBone:
     - name: capucha1
       guid: bf11a90a29620704292ce23683cc54dd
-      position: {x: 191.48206, y: 46.811737, z: 0}
-      rotation: {x: 0, y: 0, z: 0.9693535, w: -0.24567038}
-      length: 62.546326
+      position: {x: 191.48254, y: 46.81134, z: 0}
+      rotation: {x: 0, y: 0, z: 0.9693535, w: -0.24567004}
+      length: 62.54637
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294901888
     - name: "cap\xF9cha2"
       guid: de2ec30d73174d849ba0d20916bea844
-      position: {x: 62.54637, y: 0.0000108166005, z: 0}
-      rotation: {x: 0, y: 0, z: -0.55632067, w: 0.8309678}
-      length: 143.33414
+      position: {x: 62.54639, y: 0.000029754421, z: 0}
+      rotation: {x: 0, y: 0, z: -0.5563206, w: 0.8309677}
+      length: 143.33429
       parentId: 0
       color:
         serializedVersion: 2
         rgba: 4286578943
     - name: capucha3
       guid: bf52433622f93444b8d5dd4fb533ccf8
-      position: {x: 143.33421, y: 0.000025874378, z: 0}
-      rotation: {x: 0, y: 0, z: -0.74220645, w: 0.6701714}
-      length: 116.665
+      position: {x: 143.33437, y: -0.00006831635, z: 0}
+      rotation: {x: 0, y: 0, z: -0.7422064, w: 0.6701714}
+      length: 116.66504
       parentId: 1
       color:
         serializedVersion: 2
@@ -8072,7 +8072,7 @@ ScriptedImporter:
     spriteBone:
     - name: cabeza
       guid: c9154e388b4afe0458a530e5ca4e9694
-      position: {x: 595.2216, y: 16.182129, z: 0}
+      position: {x: 595.22217, y: 16.181763, z: 0}
       rotation: {x: 0, y: 0, z: 0.6851604, w: 0.7283923}
       length: 112.49455
       parentId: -1
@@ -8638,9 +8638,9 @@ ScriptedImporter:
     spriteBone:
     - name: capucha_negra
       guid: 5ce53a9dc97ecc74e802a34ca7467179
-      position: {x: 95.82007, y: 39.10559, z: 0}
-      rotation: {x: 0, y: 0, z: 0.57331085, w: 0.8193379}
-      length: 103.66425
+      position: {x: 95.820435, y: 39.10559, z: 0}
+      rotation: {x: 0, y: 0, z: 0.5733108, w: 0.8193381}
+      length: 103.664246
       parentId: -1
       color:
         serializedVersion: 2
@@ -9961,9 +9961,9 @@ ScriptedImporter:
     spriteBone:
     - name: bone_15
       guid: 600c3b6acaa0bb34a954cb097dbeace5
-      position: {x: 28.560913, y: 101.47479, z: 0}
-      rotation: {x: 0, y: 0, z: -0.6669217, w: 0.7451278}
-      length: 83.00229
+      position: {x: 28.561829, y: 101.47479, z: 0}
+      rotation: {x: 0, y: 0, z: -0.6669217, w: 0.7451279}
+      length: 83.0023
       parentId: -1
       color:
         serializedVersion: 2
@@ -10735,18 +10735,18 @@ ScriptedImporter:
     spriteBone:
     - name: brazo2_abajo
       guid: 7348319825096d94cb9db429ae75a7f3
-      position: {x: 81.67101, y: 0.000002982193, z: 0}
-      rotation: {x: 0, y: 0, z: -0.08932428, w: 0.9960027}
-      length: 87.71596
+      position: {x: 81.67116, y: 0.000023799555, z: 0}
+      rotation: {x: 0, y: 0, z: -0.08932431, w: 0.9960027}
+      length: 87.71597
       parentId: 1
       color:
         serializedVersion: 2
         rgba: 4278255360
     - name: brazo2_adelante
       guid: 247f0b0ce40afdd4d89474d87012ad76
-      position: {x: 9.742569, y: 161.47467, z: 0}
-      rotation: {x: 0, y: 0, z: -0.46842358, w: 0.883504}
-      length: 81.671036
+      position: {x: 9.743256, y: 161.47461, z: 0}
+      rotation: {x: 0, y: 0, z: -0.46842358, w: 0.8835041}
+      length: 81.671074
       parentId: -1
       color:
         serializedVersion: 2
@@ -11770,26 +11770,26 @@ ScriptedImporter:
         rgba: 4278255615
     - name: pecho
       guid: f16020078030cc74388ca75608a7cded
-      position: {x: -58.343185, y: -609.8914, z: 0}
-      rotation: {x: 0, y: 0, z: 0.03383022, w: 0.9994277}
-      length: 103.75303
-      parentId: 1
+      position: {x: 268.9641, y: -600.8577, z: 0}
+      rotation: {x: 0, y: 0, z: 0.10259864, w: 0.99472284}
+      length: 91.38839
+      parentId: 0
       color:
         serializedVersion: 2
         rgba: 4294967040
     - name: pierna1_muslo
       guid: ba92257c6abc032418222f1049367301
       position: {x: -53.997883, y: 317.69742, z: 0}
-      rotation: {x: 0, y: -0, z: 0.9738541, w: 0.22717446}
-      length: 244.18625
+      rotation: {x: 0, y: -0, z: 0.97385406, w: 0.22717446}
+      length: 244.18628
       parentId: 1
       color:
         serializedVersion: 2
         rgba: 4294901760
     - name: pierna1_gemelos
       guid: ce042f796e023704e9afad77762d826d
-      position: {x: 244.18622, y: -0.0000043607834, z: 0}
-      rotation: {x: 0, y: 0, z: 0.0007911061, w: 0.9999997}
+      position: {x: 244.18625, y: 0.000010393636, z: 0}
+      rotation: {x: 0, y: 0, z: 0.00080972293, w: 0.9999997}
       length: 236.5097
       parentId: 3
       color:
@@ -11797,17 +11797,17 @@ ScriptedImporter:
         rgba: 4294902015
     - name: pie1_atras
       guid: af5548e3280f34944a3b61c45f0d71a3
-      position: {x: 236.50972, y: 0.000016500308, z: 0}
-      rotation: {x: 0, y: -0, z: 0.8062108, w: 0.5916284}
-      length: 84.13804
+      position: {x: 236.5097, y: -0.008775849, z: 0}
+      rotation: {x: 0, y: -0, z: 0.8061998, w: 0.5916434}
+      length: 84.13805
       parentId: 4
       color:
         serializedVersion: 2
         rgba: 4278223103
     - name: pie1_adelante
       guid: ae135b51915b6d840ae1a2934290d36d
-      position: {x: 84.13805, y: -0.000017214763, z: 0}
-      rotation: {x: 0, y: 0, z: 0.025754118, w: 0.9996683}
+      position: {x: 84.138054, y: 0.00000011647887, z: 0}
+      rotation: {x: 0, y: 0, z: 0.025754087, w: 0.99966836}
       length: 59.678516
       parentId: 5
       color:
@@ -11816,34 +11816,34 @@ ScriptedImporter:
     - name: pierna2_muslos
       guid: 81a2fa6478c55484e8200e509dfb0739
       position: {x: -80.43683, y: 129.60963, z: 0}
-      rotation: {x: 0, y: -0, z: 0.99382466, w: 0.11096214}
-      length: 224.73807
+      rotation: {x: 0, y: -0, z: 0.99382466, w: 0.11096191}
+      length: 224.73811
       parentId: 1
       color:
         serializedVersion: 2
         rgba: 4286643968
     - name: pierna2_gemelos
       guid: 4120f387b74b9b04793196d713eb25fb
-      position: {x: 224.73808, y: 0.00001806599, z: 0}
-      rotation: {x: 0, y: 0, z: -0.081722036, w: 0.99665517}
-      length: 204.39505
+      position: {x: 224.73819, y: -0.00008396931, z: 0}
+      rotation: {x: 0, y: 0, z: -0.08172223, w: 0.99665517}
+      length: 204.3951
       parentId: 7
       color:
         serializedVersion: 2
         rgba: 4294934528
     - name: pie2_atras
       guid: 4de3dc9a02e96564c9b0f76a8b83060a
-      position: {x: 204.39511, y: -0.000010904277, z: 0}
-      rotation: {x: 0, y: -0, z: 0.7898302, w: 0.61332554}
-      length: 98.96072
+      position: {x: 204.39511, y: 0.000001483409, z: 0}
+      rotation: {x: 0, y: -0, z: 0.7898304, w: 0.6133254}
+      length: 98.96077
       parentId: 8
       color:
         serializedVersion: 2
         rgba: 4294901888
     - name: pie2_adelante
       guid: ce0217617dae8e94d8a8e5e23513c41b
-      position: {x: 98.96075, y: 0.00000432474, z: 0}
-      rotation: {x: 0, y: 0, z: 0.070494734, w: 0.9975122}
+      position: {x: 98.960785, y: -0.00002308329, z: 0}
+      rotation: {x: 0, y: 0, z: 0.07049455, w: 0.9975122}
       length: 71.120125
       parentId: 9
       color:
@@ -11851,17 +11851,17 @@ ScriptedImporter:
         rgba: 4286578943
     - name: brazo2_adelante
       guid: 247f0b0ce40afdd4d89474d87012ad76
-      position: {x: 400.20828, y: 1008.04736, z: 0}
-      rotation: {x: 0, y: -0, z: -0.9707254, w: 0.24019192}
-      length: 81.671036
+      position: {x: 415.64365, y: 999.45074, z: 0}
+      rotation: {x: 0, y: 0, z: -0.9739583, w: 0.22672747}
+      length: 81.67107
       parentId: 2
       color:
         serializedVersion: 2
         rgba: 4278255615
     - name: brazo2_abajo
       guid: 7348319825096d94cb9db429ae75a7f3
-      position: {x: 81.67107, y: 0.00000894539, z: 0}
-      rotation: {x: 0, y: 0, z: -0.0893243, w: 0.9960027}
+      position: {x: 81.67104, y: 0.00006528888, z: 0}
+      rotation: {x: 0, y: 0, z: -0.08932429, w: 0.9960027}
       length: 87.715965
       parentId: 11
       color:
@@ -11878,8 +11878,8 @@ ScriptedImporter:
         rgba: 4294967040
     - name: brazo1
       guid: 6e53aa1f0a2be0a468bc41cd6422df2d
-      position: {x: 290.1287, y: 235.21523, z: 0}
-      rotation: {x: 0, y: -0, z: 0.96755, w: 0.25267977}
+      position: {x: 284.20566, y: 229.96344, z: 0}
+      rotation: {x: 0, y: 0, z: 0.96395844, w: 0.26605305}
       length: 97.0384
       parentId: 2
       color:
@@ -11914,8 +11914,8 @@ ScriptedImporter:
         rgba: 4278255488
     - name: cabeza
       guid: c9154e388b4afe0458a530e5ca4e9694
-      position: {x: -290.00146, y: 440.31723, z: 0}
-      rotation: {x: 0, y: 0, z: -0.08579764, w: 0.9963126}
+      position: {x: -290.0228, y: 451.05112, z: 0}
+      rotation: {x: 0, y: 0, z: -0.09958523, w: 0.9950291}
       length: 112.49457
       parentId: 2
       color:
@@ -11923,8 +11923,8 @@ ScriptedImporter:
         rgba: 4286643968
     - name: capucha_negra
       guid: 5ce53a9dc97ecc74e802a34ca7467179
-      position: {x: 195.86525, y: -21.762852, z: 0}
-      rotation: {x: 0, y: 0, z: -0.22815867, w: 0.973624}
+      position: {x: 182.86255, y: -24.305695, z: 0}
+      rotation: {x: 0, y: 0, z: -0.24161857, w: 0.97037137}
       length: 103.66425
       parentId: 2
       color:
@@ -11932,26 +11932,26 @@ ScriptedImporter:
         rgba: 4294934528
     - name: capucha1
       guid: bf11a90a29620704292ce23683cc54dd
-      position: {x: -60.48003, y: 254.57416, z: 0}
-      rotation: {x: 0, y: -0, z: 0.82953835, w: 0.55844986}
-      length: 62.54633
+      position: {x: -65.73278, y: 259.02365, z: 0}
+      rotation: {x: 0, y: 0, z: 0.82172585, w: 0.5698831}
+      length: 62.546356
       parentId: 2
       color:
         serializedVersion: 2
         rgba: 4294901888
     - name: "cap\xF9cha2"
       guid: de2ec30d73174d849ba0d20916bea844
-      position: {x: 62.546345, y: -0.000010922646, z: 0}
+      position: {x: 62.54636, y: 0.00001783203, z: 0}
       rotation: {x: 0, y: 0, z: -0.5563206, w: 0.8309677}
-      length: 143.33417
+      length: 143.33426
       parentId: 20
       color:
         serializedVersion: 2
         rgba: 4286578943
     - name: capucha3
       guid: bf52433622f93444b8d5dd4fb533ccf8
-      position: {x: 143.33421, y: 0.0000007870767, z: 0}
-      rotation: {x: 0, y: 0, z: -0.74220645, w: 0.6701714}
+      position: {x: 143.33429, y: -0.00006404094, z: 0}
+      rotation: {x: 0, y: 0, z: -0.7422064, w: 0.6701714}
       length: 116.66503
       parentId: 21
       color:
