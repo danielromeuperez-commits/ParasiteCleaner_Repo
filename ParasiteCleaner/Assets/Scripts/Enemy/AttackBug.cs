@@ -9,7 +9,11 @@ public class AttackBug : MonoBehaviour
     [SerializeField] Transform shootPoint;
     [SerializeField] float attackFreezeTime = 0.7f;
 
+    [Header("DIRECTION")]
+    [SerializeField] bool facingRight = true; // true = derecha, false = izquierda
+
     Rigidbody2D rb;
+    Animator anim; // Opcional: si tienes animaciones
 
     float attackTimer;
     bool isAttacking;
@@ -18,6 +22,7 @@ public class AttackBug : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -35,16 +40,32 @@ public class AttackBug : MonoBehaviour
         isAttacking = true;
         attackTimer = attackCooldown;
 
-        // Freeze en X
+        // Congelar movimiento horizontal
         float originalXVelocity = rb.linearVelocity.x;
-        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+        rb.linearVelocity = Vector2.zero;
 
-        // Instancia del proyectil
+        // Animación de ataque
+        if (anim != null)
+            anim.SetTrigger("Attack");
+
+        // Instanciar proyectil
         if (projectilePrefab != null && shootPoint != null)
-            Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+        {
+            GameObject projGO = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+            ProjectileBug proj = projGO.GetComponent<ProjectileBug>();
 
+            if (proj != null)
+            {
+                // Dirección basada en la rotación del shootPoint
+                Vector2 dir = shootPoint.right.normalized;
+                proj.SetDirection(dir);
+            }
+        }
+
+        // Esperar mientras está congelado
         yield return new WaitForSeconds(attackFreezeTime);
 
+        // Restaurar movimiento horizontal
         rb.linearVelocity = new Vector2(originalXVelocity, rb.linearVelocity.y);
 
         isAttacking = false;
@@ -60,5 +81,24 @@ public class AttackBug : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             playerInRange = false;
+    }
+
+    // Función para girar el enemigo
+    public void Flip()
+    {
+        facingRight = !facingRight;
+
+        // Mantener la escala del enemigo positiva
+        Vector3 scale = transform.localScale;
+        scale.x = 1f;
+        transform.localScale = scale;
+
+        // Rotar el shootPoint 180° en Y
+        if (shootPoint != null)
+        {
+            Vector3 shootEuler = shootPoint.localEulerAngles;
+            shootEuler.y += 180f;
+            shootPoint.localEulerAngles = shootEuler;
+        }
     }
 }

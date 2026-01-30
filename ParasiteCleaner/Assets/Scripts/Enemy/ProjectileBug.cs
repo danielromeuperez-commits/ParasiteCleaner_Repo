@@ -6,7 +6,6 @@ public class ProjectileBug : MonoBehaviour
     [SerializeField] float lifeTime = 2f;
     [SerializeField] int damage = 1;
 
-    Vector2 direction;
     Rigidbody2D rb;
 
     void Awake()
@@ -15,38 +14,28 @@ public class ProjectileBug : MonoBehaviour
         if (!rb)
             rb = gameObject.AddComponent<Rigidbody2D>();
 
-        rb.isKinematic = false; // para poder usar velocity
         rb.gravityScale = 0;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         Destroy(gameObject, lifeTime);
     }
 
     public void SetDirection(Vector2 dir)
     {
-        direction = dir.normalized;
+        dir = dir.normalized;
+        rb.linearVelocity = dir * speed;
 
-        rb.linearVelocity = direction * speed;
-
-        // Flip visual
-        Vector3 scale = transform.localScale;
-        scale.x = Mathf.Abs(scale.x) * (dir.x >= 0 ? 1 : -1);
-        transform.localScale = scale;
-    }
-
-    void Update()
-    {
-        transform.Translate(direction * speed * Time.deltaTime);
+        // Opcional: rotar sprite visualmente
+        // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        // transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            // Quitar vida desde el GameManager
             if (GameManager.Instance != null)
-            {
                 GameManager.Instance.playerHealth -= damage;
-            }
 
             Destroy(gameObject);
         }
