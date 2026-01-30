@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cf876b1671cb24eb4a7d90dd9efb16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile_Shroom
-  speed: 15
-  lifeTime: 2
+  speed: 40
+  lifeTime: 5
   damage: 1
 --- !u!50 &2792898230753215013
 Rigidbody2D:
