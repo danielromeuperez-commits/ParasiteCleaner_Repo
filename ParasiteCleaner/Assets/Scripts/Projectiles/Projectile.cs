@@ -22,13 +22,21 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Enemy
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage); // Hacer daño
+            enemy.TakeDamage(damage);
+            gameObject.SetActive(false);
+            return;
         }
 
-        // Desactivar el proyectil en cualquier caso
-        gameObject.SetActive(false);
+        //Boss
+        Boss boss = collision.GetComponent<Boss>();
+        if (boss != null)
+        {
+            boss.TakeDamage(damage);
+            gameObject.SetActive(false);
+        }
     }
 }
