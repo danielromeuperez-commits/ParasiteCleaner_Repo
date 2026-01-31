@@ -5,29 +5,23 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    public static GameManager Instance
-    {
-        get
-        {
-            if (instance == null) Debug.Log("No hay GameManager!");
-            return instance;
-        }
-    }
+    public static GameManager Instance => instance;
 
+    [Header("Player")]
+    public float maxHealth = 100f;
     public float playerHealth;
-    public float maxHealth = 100;
-    public int playerPoints;
+
     public bool IsPlayerDead => playerHealth <= 0;
 
-    // REFERENCIAS PARA EL GAME OVER
-    public Image fadeImage;            // Imagen negra para el fade
-    public Canvas gameOverCanvas;      // Canvas completo que incluye texto y botones
-    public float fadeDuration = 1f;    // Duración del fade
-    public float delayBeforeGameOver = 2f; // Segundos antes de iniciar TODO
+    [Header("Game Over")]
+    public Image fadeImage;
+    public Canvas gameOverCanvas;
+    public float fadeDuration = 1f;
+    public float delayBeforeGameOver = 2f;
 
-    private bool gameOverTriggered = false;
+    bool gameOverTriggered;
 
-    private void Awake()
+    void Awake()
     {
         if (instance == null)
         {
@@ -40,52 +34,59 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    void Start()
     {
-        // Al inicio, ocultamos canvas y fade
+        playerHealth = maxHealth;
+
         if (gameOverCanvas != null)
             gameOverCanvas.gameObject.SetActive(false);
+
         if (fadeImage != null)
-            fadeImage.gameObject.SetActive(false); // oculto al inicio
+            fadeImage.gameObject.SetActive(false);
     }
 
-    private void Update()
+    // ================= DAMAGE =================
+    public void TakeDamage(float dmg)
     {
+        if (IsPlayerDead) return;
+
+        playerHealth -= dmg;
         if (playerHealth < 0) playerHealth = 0;
-
-        if (!gameOverTriggered && IsPlayerDead)
-        {
-            gameOverTriggered = true;
-            StartCoroutine(HandleGameOver());
-        }
     }
 
-    private IEnumerator HandleGameOver()
+    // ================= PLAYER DIED =================
+    public void OnPlayerDied()
     {
-        // Esperamos el delay antes de iniciar TODO
-        yield return new WaitForSecondsRealtime(delayBeforeGameOver);
+        if (gameOverTriggered) return;
 
-        // Activamos la imagen de fade
+        gameOverTriggered = true;
+        StartCoroutine(GameOverSequence());
+    }
+
+    IEnumerator GameOverSequence()
+    {
+        // Esperar a que termine la animación de muerte
+        yield return new WaitForSeconds(delayBeforeGameOver);
+
+        // Fade a negro
         fadeImage.gameObject.SetActive(true);
-        fadeImage.color = new Color(0, 0, 0, 0); // transparente al inicio
+        fadeImage.color = new Color(0, 0, 0, 0);
 
-        // Fade-in a negro usando unscaledDeltaTime
         float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
-            elapsed += Time.unscaledDeltaTime; // independiente de Time.timeScale
-            float alpha = Mathf.Clamp01(elapsed / fadeDuration);
-            fadeImage.color = new Color(0, 0, 0, alpha);
+            elapsed += Time.unscaledDeltaTime;
+            float a = elapsed / fadeDuration;
+            fadeImage.color = new Color(0, 0, 0, a);
             yield return null;
         }
+
         fadeImage.color = Color.black;
 
-        // Ahora pausamos el juego
+        // Pausar TODO
         Time.timeScale = 0f;
 
-        // Activamos el canvas completo con texto/botones
-        if (gameOverCanvas != null)
-            gameOverCanvas.gameObject.SetActive(true);
+        // Mostrar Game Over
+        gameOverCanvas.gameObject.SetActive(true);
     }
-
 }

@@ -23,14 +23,14 @@ public class PlayerController2D : MonoBehaviour
 
     Vector2 moveInput;
     bool isFacingRight = true;
+
     bool isGrounded;
     bool jumpLocked;
     bool canShoot = true;
     bool isDead;
 
-    // ================= PROPIEDADES =================
-    public bool IsFacingRight => isFacingRight;
     public bool IsGrounded => isGrounded;
+    public bool IsFacingRight => isFacingRight;
 
     void Awake()
     {
@@ -40,13 +40,17 @@ public class PlayerController2D : MonoBehaviour
 
     void Update()
     {
+        // ESCUCHA AL GAMEMANAGER
+        if (!isDead && GameManager.Instance != null && GameManager.Instance.IsPlayerDead)
+        {
+            Die();
+        }
+
         if (isDead) return;
 
-        // Animator
         anim.SetBool("Grounded", isGrounded);
         anim.SetBool("Walk", Mathf.Abs(moveInput.x) > 0.1f);
 
-        // Flip
         if (moveInput.x > 0 && !isFacingRight) Flip();
         else if (moveInput.x < 0 && isFacingRight) Flip();
     }
@@ -55,10 +59,8 @@ public class PlayerController2D : MonoBehaviour
     {
         if (isDead) return;
 
-        // Movimiento
         rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
 
-        // Ground Check (SOLO por Layer)
         isGrounded = Physics2D.OverlapCircle(
             groundCheck.position,
             groundCheckRadius,
@@ -113,7 +115,7 @@ public class PlayerController2D : MonoBehaviour
         canShoot = true;
     }
 
-    // ================= INPUT SYSTEM =================
+    // ================= INPUT =================
     public void OnMove(InputAction.CallbackContext ctx)
     {
         if (isDead) return;
@@ -131,19 +133,21 @@ public class PlayerController2D : MonoBehaviour
     }
 
     // ================= DEATH =================
-    void Die()
+    public void Die()
     {
+        if (isDead) return;
+
         isDead = true;
         anim.SetTrigger("Death");
         moveInput = Vector2.zero;
         rb.linearVelocity = Vector2.zero;
+
+        GameManager.Instance.OnPlayerDied();
     }
 
-    // ================= DEBUG =================
     void OnDrawGizmosSelected()
     {
         if (groundCheck == null) return;
-
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
