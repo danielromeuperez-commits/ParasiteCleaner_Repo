@@ -1,141 +1,139 @@
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.Experimental;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerController2D : MonoBehaviour
 {
-    [Header("Movement & Jump config")]
-    [SerializeField] float speed;
-    [SerializeField] float jumpForce;
-    [SerializeField] bool isGrounded;
-    [SerializeField] public bool isFacingRight;
+    [Header("Movement")]
+    [SerializeField] float speed = 5f;
+    [SerializeField] float jumpForce = 12f;
+
+    [Header("Ground Check")]
     [SerializeField] Transform groundCheck;
-    [SerializeField] float groundCheckRadius;
+    [SerializeField] float groundCheckRadius = 0.2f;
     [SerializeField] LayerMask groundLayer;
-    [Header("Coyote time")]
-    [SerializeField] float coyoteTime =0.2f;
-    [SerializeField] float coyoteTimeCounter;
-    [Header("Shoot config")]
-    [SerializeField] GameObject Projectile;
-    [SerializeField] Transform Shootpoint;
-    [SerializeField] bool canShoot;
-    [SerializeField] float shootCooldown; 
-    //Refs generales
-    Rigidbody2D playerRb;
-    PlayerInput input;
+
+    [Header("Shoot")]
+    [SerializeField] GameObject projectile;
+    [SerializeField] Transform shootPoint;
+    [SerializeField] float shootCooldown = 0.5f;
+
+    Rigidbody2D rb;
+    Animator anim;
     Vector2 moveInput;
+    bool canShoot = true;
+    bool isFacingRight = true;
+    bool isGrounded;
+    bool jumpLocked;
+    bool isDead = false; // NUEVO: flag para controlar muerte
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Awake()
+    // ================= PROPIEDADES P√öBLICAS =================
+    public bool IsFacingRight => isFacingRight;
+    public bool IsGrounded => isGrounded;
+
+    void Awake()
     {
-        playerRb = GetComponent<Rigidbody2D>();
-        input = GetComponent<PlayerInput>();
-        canShoot = true;
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
-    void Start()
-    {
-        isFacingRight = true;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        // Revisar si el jugador muri√≥
+        if (!isDead && GameManager.Instance.IsPlayerDead)
+        {
+            Die();
+        }
 
-        // Coyote time
-        if (isGrounded)
-            coyoteTimeCounter = coyoteTime; // reinicia cuando est·s en el suelo
-        else
-            coyoteTimeCounter -= Time.deltaTime;
+        // Ground check
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            groundCheckRadius,
+            groundLayer
+        );
 
-        // Flip
+        if (isGrounded) jumpLocked = false;
+
+        // Animator
+        anim.SetBool("Grounded", isGrounded);
+        anim.SetBool("Walk", moveInput.x != 0);
+
+        // Flip visual
         if (moveInput.x > 0 && !isFacingRight) Flip();
-        if (moveInput.x < 0 && isFacingRight) Flip();
-    }  
-        
+        else if (moveInput.x < 0 && isFacingRight) Flip();
+    }
+
     void FixedUpdate()
     {
-        Movement();
-    }
-
-    void Movement()
-    {
-        playerRb.linearVelocity = new Vector2(moveInput.x * speed, playerRb.linearVelocity.y);
-    }
-
-    void Jump()
-    {
-        playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-    }
-
-    void Shoot()
-    {
-        if (canShoot)
-        {
-            StartCoroutine(ShootCoroutine());
-        }
-    }
-
-    IEnumerator ShootCoroutine()
-    {
-        canShoot = false; // Evita disparar otra vez mientras la corrutina est· activa
-
-        int shots = 3; // Numero de proyectiles por disparo
-        float delay = 0.2f; // Tiempo entre cada proyectil (ajusta seg˙n necesites)
-
-        for (int i = 0; i < shots; i++)
-        {
-            // Instanciamos el proyectil
-            GameObject proj = Instantiate(Projectile, Shootpoint.position, Quaternion.identity);
-
-            // Ajustamos la direcciÛn del proyectil
-            Projectile projScript = proj.GetComponent<Projectile>();
-            projScript.isFacingRight = isFacingRight;
-
-            yield return new WaitForSeconds(delay);
-        }
-
-        // Esperamos el cooldown antes de poder disparar de nuevo
-        yield return new WaitForSeconds(shootCooldown);
-        canShoot = true;
-    }
-
-
-    void resetShoot()
-    {
-        canShoot = true;
+        if (!isDead) // Solo mover si no est√° muerto
+            rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
     }
 
     void Flip()
     {
         isFacingRight = !isFacingRight;
-        Vector3 s = transform.localScale;
-        s.x *= -1;
-        transform.localScale = s;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
-    #region Input Methods
-
-    public void OnMove(InputAction.CallbackContext context)
+    // ================= JUMP =================
+    void Jump()
     {
-        moveInput = context.ReadValue<Vector2>();
+        if (!isGrounded || jumpLocked || isDead) // No saltar si muri√≥
+            return;
+        jumpLocked = true;
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    // ================= SHOOT =================
+    void Shoot()
     {
-        if (context.performed && coyoteTimeCounter > 0f)
+        if (!canShoot || !isGrounded || isDead) return; // No disparar si muri√≥
+        anim.SetBool("IsAttacking", true);
+        anim.SetTrigger("Shoot");
+        StartCoroutine(ShootCoroutine());
+    }
+
+    IEnumerator ShootCoroutine()
+    {
+        canShoot = false;
+        for (int i = 0; i < 3; i++)
         {
-            Jump();                   // Aplica la fuerza de salto
-            coyoteTimeCounter = 0f;    // Evita saltos dobles usando coyote time
+            GameObject proj = Instantiate(projectile, shootPoint.position, Quaternion.identity);
+            proj.GetComponent<Projectile>().isFacingRight = isFacingRight;
+            yield return new WaitForSeconds(0.2f);
         }
+        anim.SetBool("IsAttacking", false);
+        yield return new WaitForSeconds(shootCooldown);
+        canShoot = true;
     }
 
-    public void OnShoot(InputAction.CallbackContext context)
+    // ================= INPUT SYSTEM =================
+    public void OnMove(InputAction.CallbackContext ctx)
     {
-        if (context.performed && canShoot) Shoot();
+        if (!isDead) // No mover si muri√≥
+            moveInput = ctx.ReadValue<Vector2>();
     }
-    #endregion
+
+    public void OnJump(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed) Jump();
+    }
+
+    public void OnShoot(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed) Shoot();
+    }
+
+    // ================= DEATH =================
+    void Die()
+    {
+        isDead = true;
+        anim.SetTrigger("Death");
+        moveInput = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
+        // Opcional: bloquear este script para que no se ejecute nada m√°s
+        // this.enabled = false;
+    }
 }

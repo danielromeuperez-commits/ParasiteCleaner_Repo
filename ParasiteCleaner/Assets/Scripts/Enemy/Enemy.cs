@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -8,19 +7,34 @@ public class Enemy : MonoBehaviour
     public bool isFacingRight = true;
 
     [Header("Ground Check")]
-    private bool isGrounded;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
 
-    [Header("HEALTH")]
+    [Header("Health")]
     public int healthPoints;
 
+    [HideInInspector] public bool canMove = true;
+
+    private bool isGrounded;
+    private Animator anim;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     void Update()
     {
         // Check si toca el suelo
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        // Detenerse si no puede moverse
+        if (!canMove)
+        {
+            anim.SetBool("Walk", false);
+            return;
+        }
 
         // Mover siempre en la dirección actual
         float dir = isFacingRight ? 1f : -1f;
@@ -31,6 +45,9 @@ public class Enemy : MonoBehaviour
         {
             Flip();
         }
+
+        // Actualizar parámetro de animación
+        anim.SetBool("Walk", true);
     }
 
     void Flip()
@@ -50,13 +67,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
     void Die()
     {
         gameObject.SetActive(false);
     }
 
-    // Opcional: dibuja el groundCheck en el Scene View
     private void OnDrawGizmosSelected()
     {
         if (groundCheck != null)
