@@ -10,7 +10,7 @@ public class PlayerController2D : MonoBehaviour
 
     [Header("Ground Check")]
     [SerializeField] Transform groundCheck;
-    [SerializeField] float groundCheckRadius = 0.2f;
+    [SerializeField] float groundCheckRadius = 0.35f;
     [SerializeField] LayerMask groundLayer;
 
     [Header("Shoot")]
@@ -20,14 +20,15 @@ public class PlayerController2D : MonoBehaviour
 
     Rigidbody2D rb;
     Animator anim;
+
     Vector2 moveInput;
-    bool canShoot = true;
     bool isFacingRight = true;
     bool isGrounded;
     bool jumpLocked;
-    bool isDead = false; // NUEVO: flag para controlar muerte
+    bool canShoot = true;
+    bool isDead;
 
-    // ================= PROPIEDADES PÚBLICAS =================
+    // ================= PROPIEDADES =================
     public bool IsFacingRight => isFacingRight;
     public bool IsGrounded => isGrounded;
 
@@ -39,34 +40,33 @@ public class PlayerController2D : MonoBehaviour
 
     void Update()
     {
-        // Revisar si el jugador murió
-        if (!isDead && GameManager.Instance.IsPlayerDead)
-        {
-            Die();
-        }
-
-        // Ground check
-        isGrounded = Physics2D.OverlapCircle(
-            groundCheck.position,
-            groundCheckRadius,
-            groundLayer
-        );
-
-        if (isGrounded) jumpLocked = false;
+        if (isDead) return;
 
         // Animator
         anim.SetBool("Grounded", isGrounded);
-        anim.SetBool("Walk", moveInput.x != 0);
+        anim.SetBool("Walk", Mathf.Abs(moveInput.x) > 0.1f);
 
-        // Flip visual
+        // Flip
         if (moveInput.x > 0 && !isFacingRight) Flip();
         else if (moveInput.x < 0 && isFacingRight) Flip();
     }
 
     void FixedUpdate()
     {
-        if (!isDead) // Solo mover si no está muerto
-            rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
+        if (isDead) return;
+
+        // Movimiento
+        rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
+
+        // Ground Check (SOLO por Layer)
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            groundCheckRadius,
+            groundLayer
+        );
+
+        if (isGrounded)
+            jumpLocked = false;
     }
 
     void Flip()
@@ -80,8 +80,8 @@ public class PlayerController2D : MonoBehaviour
     // ================= JUMP =================
     void Jump()
     {
-        if (!isGrounded || jumpLocked || isDead) // No saltar si murió
-            return;
+        if (!isGrounded || jumpLocked || isDead) return;
+
         jumpLocked = true;
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
@@ -89,7 +89,8 @@ public class PlayerController2D : MonoBehaviour
     // ================= SHOOT =================
     void Shoot()
     {
-        if (!canShoot || !isGrounded || isDead) return; // No disparar si murió
+        if (!canShoot || !isGrounded || isDead) return;
+
         anim.SetBool("IsAttacking", true);
         anim.SetTrigger("Shoot");
         StartCoroutine(ShootCoroutine());
@@ -98,13 +99,16 @@ public class PlayerController2D : MonoBehaviour
     IEnumerator ShootCoroutine()
     {
         canShoot = false;
+
         for (int i = 0; i < 3; i++)
         {
             GameObject proj = Instantiate(projectile, shootPoint.position, Quaternion.identity);
             proj.GetComponent<Projectile>().isFacingRight = isFacingRight;
             yield return new WaitForSeconds(0.2f);
         }
+
         anim.SetBool("IsAttacking", false);
+
         yield return new WaitForSeconds(shootCooldown);
         canShoot = true;
     }
@@ -112,8 +116,8 @@ public class PlayerController2D : MonoBehaviour
     // ================= INPUT SYSTEM =================
     public void OnMove(InputAction.CallbackContext ctx)
     {
-        if (!isDead) // No mover si murió
-            moveInput = ctx.ReadValue<Vector2>();
+        if (isDead) return;
+        moveInput = ctx.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext ctx)
@@ -133,7 +137,14 @@ public class PlayerController2D : MonoBehaviour
         anim.SetTrigger("Death");
         moveInput = Vector2.zero;
         rb.linearVelocity = Vector2.zero;
-        // Opcional: bloquear este script para que no se ejecute nada más
-        // this.enabled = false;
+    }
+
+    // ================= DEBUG =================
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck == null) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }
