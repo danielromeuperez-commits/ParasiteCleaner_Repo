@@ -4,25 +4,24 @@ using System.Collections;
 public class AttackBug : MonoBehaviour
 {
     [Header("ATTACK")]
-    [SerializeField] float attackCooldown = 2f;
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] Transform shootPoint;
-    [SerializeField] float attackFreezeTime = 0.7f;
+    [SerializeField] private float attackCooldown = 2f;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform shootPoint;
+    [SerializeField] private float attackFreezeTime = 0.7f;
 
-    [Header("DIRECTION")]
-    [SerializeField] bool facingRight = true; // true = derecha, false = izquierda
+    private Rigidbody2D rb;
+    private Animator anim;
+    private Enemy enemy;
 
-    Rigidbody2D rb;
-    Animator anim; // Opcional: si tienes animaciones
-
-    float attackTimer;
-    bool isAttacking;
-    bool playerInRange;
+    private float attackTimer;
+    private bool isAttacking;
+    private bool playerInRange;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        enemy = GetComponent<Enemy>();
     }
 
     void Update()
@@ -35,29 +34,31 @@ public class AttackBug : MonoBehaviour
             StartCoroutine(AttackRoutine());
     }
 
-    IEnumerator AttackRoutine()
+    private IEnumerator AttackRoutine()
     {
         isAttacking = true;
         attackTimer = attackCooldown;
 
-        // Congelar movimiento horizontal
+        // Congelar movimiento del Enemy
+        if (enemy != null)
+            enemy.canMove = false;
+
+        // Congelar Rigidbody momentáneamente
         float originalXVelocity = rb.linearVelocity.x;
         rb.linearVelocity = Vector2.zero;
 
-        // Animación de ataque
+        // Animación de ataque con parámetro
         if (anim != null)
-            anim.SetTrigger("Attack");
+            anim.SetBool("Attack", true);
 
         // Instanciar proyectil
-        if (projectilePrefab != null && shootPoint != null)
+        if (projectilePrefab != null && shootPoint != null && enemy != null)
         {
             GameObject projGO = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
             ProjectileBug proj = projGO.GetComponent<ProjectileBug>();
-
             if (proj != null)
             {
-                // Dirección basada en la rotación del shootPoint
-                Vector2 dir = shootPoint.right.normalized;
+                Vector2 dir = enemy.isFacingRight ? Vector2.right : Vector2.left;
                 proj.SetDirection(dir);
             }
         }
@@ -65,8 +66,14 @@ public class AttackBug : MonoBehaviour
         // Esperar mientras está congelado
         yield return new WaitForSeconds(attackFreezeTime);
 
-        // Restaurar movimiento horizontal
+        // Restaurar movimiento
         rb.linearVelocity = new Vector2(originalXVelocity, rb.linearVelocity.y);
+        if (enemy != null)
+            enemy.canMove = true;
+
+        // Terminar animación de ataque
+        if (anim != null)
+            anim.SetBool("Attack", false);
 
         isAttacking = false;
     }
@@ -81,24 +88,5 @@ public class AttackBug : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             playerInRange = false;
-    }
-
-    // Función para girar el enemigo
-    public void Flip()
-    {
-        facingRight = !facingRight;
-
-        // Mantener la escala del enemigo positiva
-        Vector3 scale = transform.localScale;
-        scale.x = 1f;
-        transform.localScale = scale;
-
-        // Rotar el shootPoint 180° en Y
-        if (shootPoint != null)
-        {
-            Vector3 shootEuler = shootPoint.localEulerAngles;
-            shootEuler.y += 180f;
-            shootPoint.localEulerAngles = shootEuler;
-        }
     }
 }

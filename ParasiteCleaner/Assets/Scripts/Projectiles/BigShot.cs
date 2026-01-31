@@ -7,77 +7,121 @@ public class BigShot : MonoBehaviour
     [Header("Projectile")]
     public GameObject chargedProjectile;
     public Transform shootPoint;
-
-    [Header("Charge Config")]
     public float chargeTime = 3f;
-    public Color chargeColor = Color.red;
-    public float flashDuration = 0.5f;
-    public SpriteRenderer spriteRenderer;
 
-    [Header("Player")]
+    [Header("Visual Feedback")]
+    public SpriteRenderer spriteRenderer;
+    public Color chargingColor = Color.yellow;
+    public Color chargedColor = Color.red;
+    public float blinkSpeed = 6f;
+
+    [Header("Refs")]
     public PlayerController2D player;
 
-    private bool isCharging = false;
-    private bool chargedReady = false;
-    private float chargeCounter = 0f;
-    private Keyboard kb;
-
-    void Awake()
-    {
-        kb = Keyboard.current;
-    }
+    bool isCharging;
+    bool chargedReady;
+    float chargeCounter;
+    Coroutine blinkRoutine;
 
     void Update()
     {
-        if (kb == null) return;
-
-        // Inicia carga
-        if (kb.spaceKey.wasPressedThisFrame)
+        // ================= BLOQUEO SI NO ESTÁ EN EL SUELO =================
+        if (!player.IsGrounded)
         {
-            isCharging = true;
-            chargeCounter = 0f;
-            chargedReady = false;
+            if (isCharging) ReleaseCharge(); // cancelar carga si está en el aire
+            return; // no permitir iniciar carga
         }
 
-        // Mantener pulsado
-        if (isCharging && kb.spaceKey.isPressed)
+        // ================= INPUT =================
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            StartCharge();
+
+        if (isCharging && Keyboard.current.spaceKey.isPressed)
         {
             chargeCounter += Time.deltaTime;
 
+            // Cuando termina de cargar
             if (!chargedReady && chargeCounter >= chargeTime)
-            {
-                chargedReady = true;
-                if (spriteRenderer != null)
-                    StartCoroutine(FlashColor(flashDuration));
-            }
+                FullyCharged();
         }
 
-        // Soltar tecla
-        if (isCharging && kb.spaceKey.wasReleasedThisFrame)
-        {
-            isCharging = false;
-
-            if (chargedReady && chargedProjectile != null && shootPoint != null && player != null)
-            {
-                // Instanciar proyectil
-                GameObject proj = Instantiate(chargedProjectile, shootPoint.position, Quaternion.identity);
-                Projectile projScript = proj.GetComponent<Projectile>();
-
-                projScript.isFacingRight = player.isFacingRight;
-                projScript.damage = 20; // da�o del proyectil cargado
-
-            }
-
-            chargedReady = false;
-            chargeCounter = 0f;
-        }
+        if (isCharging && Keyboard.current.spaceKey.wasReleasedThisFrame)
+            ReleaseCharge();
     }
 
-    private IEnumerator FlashColor(float duration)
+    // ================= CHARGE =================
+
+    void StartCharge()
     {
-        Color originalColor = spriteRenderer.color;
-        spriteRenderer.color = chargeColor;
-        yield return new WaitForSeconds(duration);
-        spriteRenderer.color = originalColor;
+        if (!player.IsGrounded) return; // seguridad extra
+
+        isCharging = true;
+        chargeCounter = 0f;
+        chargedReady = false;
+
+        // Bloquear movimiento y animación del jugador
+        player.enabled = false;
+        player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        player.GetComponent<Animator>().SetBool("IsBigShotCharging", true);
+
+        // Feedback visual (parpadeo)
+        if (blinkRoutine != null)
+            StopCoroutine(blinkRoutine);
+
+        blinkRoutine = StartCoroutine(BlinkColor());
+    }
+
+    void FullyCharged()
+    {
+        chargedReady = true;
+
+        if (blinkRoutine != null)
+            StopCoroutine(blinkRoutine);
+
+        spriteRenderer.color = chargedColor; // color sólido al estar full
+    }
+
+    void ReleaseCharge()
+    {
+        isCharging = false;
+
+        // Desbloquear jugador
+        player.enabled = true;
+        player.GetComponent<Animator>().SetBool("IsBigShotCharging", false);
+
+        // Reset visual
+        if (blinkRoutine != null)
+            StopCoroutine(blinkRoutine);
+        spriteRenderer.color = Color.white;
+
+        // Solo disparar si está en el suelo
+        if (chargedReady && player.IsGrounded)
+        {
+            GameObject proj = Instantiate(chargedProjectile, shootPoint.position, Quaternion.identity);
+            proj.GetComponent<Projectile>().isFacingRight = player.IsFacingRight;
+
+            player.GetComponent<Animator>().SetTrigger("BigShot");
+        }
+
+        ResetCharge();
+    }
+
+    void ResetCharge()
+    {
+        chargedReady = false;
+        chargeCounter = 0f;
+        isCharging = false;
+    }
+
+    // ================= VISUAL =================
+
+    IEnumerator BlinkColor()
+    {
+        while (true)
+        {
+            float t = Mathf.PingPong(Time.time * blinkSpeed, 1f);
+            spriteRenderer.color = Color.Lerp(Color.white, chargingColor, t);
+            yield return null;
+        }
     }
 }
