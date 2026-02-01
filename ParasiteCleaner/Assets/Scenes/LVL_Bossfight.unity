@@ -1232,6 +1232,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1000523311626744442, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6307866759923728121, guid: f28c802cd5b15bd4695aad5ea7190d0b, type: 3}
     - target: {fileID: 2104936942513101953, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1249,12 +1253,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2104936942513101953, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 229.3098
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104936942513101953, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 140.5081
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104936942513101953, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -102.20001
+      value: -227.1
       objectReference: {fileID: 0}
     - target: {fileID: 2104936942513101953, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 41.100006
+      value: 56.877502
       objectReference: {fileID: 0}
     - target: {fileID: 2378820243869464944, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
       propertyPath: m_Name
@@ -1357,17 +1369,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4608104596209981391, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 222.5394
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608104596209981391, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 140.3726
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608104596209981391, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -102.20001
+      value: -220.797
       objectReference: {fileID: 0}
     - target: {fileID: 4608104596209981391, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 41.100006
+      value: 56.824783
       objectReference: {fileID: 0}
     - target: {fileID: 6426146648251914477, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
       propertyPath: m_Name
       value: Canvas boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8764508483078271654, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3516211225308394757, guid: 33d71efcb178c93408435279a667bceb, type: 3}
     - target: {fileID: 8877595108257044725, guid: c374abdc37cdf0e40b8988c61e9b6a44, type: 3}
       propertyPath: m_Name
       value: bosshealthbar

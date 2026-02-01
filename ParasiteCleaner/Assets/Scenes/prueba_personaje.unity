@@ -346,7 +346,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 48.476, y: 0, z: 0}
---- !u!1001 &1739360165
+--- !u!1001 &6455949677228341388
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -354,55 +354,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 407022649409193903, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
-      propertyPath: m_Name
-      value: pick_up_estrella
-      objectReference: {fileID: 0}
-    - target: {fileID: 1544190575616040908, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+    - target: {fileID: 1132256243130757295, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.53797
       objectReference: {fileID: 0}
-    - target: {fileID: 1544190575616040908, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+    - target: {fileID: 1132256243130757295, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.18466
       objectReference: {fileID: 0}
-    - target: {fileID: 1544190575616040908, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+    - target: {fileID: 1132256243130757295, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1544190575616040908, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+    - target: {fileID: 1132256243130757295, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1544190575616040908, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+    - target: {fileID: 1132256243130757295, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1544190575616040908, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+    - target: {fileID: 1132256243130757295, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1544190575616040908, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+    - target: {fileID: 1132256243130757295, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1544190575616040908, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+    - target: {fileID: 1132256243130757295, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1544190575616040908, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+    - target: {fileID: 1132256243130757295, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1544190575616040908, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+    - target: {fileID: 1132256243130757295, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269406126045767884, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
+      propertyPath: m_Name
+      value: pick_up_estrella
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0eb22498190be6a46b89bb8bf63dbb39, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ec8c4b3fc15e62441a421dff5341ee56, type: 3}
 --- !u!1001 &9138117947480608397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -627,4 +627,4 @@ SceneRoots:
   - {fileID: 721632224}
   - {fileID: 9138117947480608397}
   - {fileID: 1501132102}
-  - {fileID: 1739360165}
+  - {fileID: 6455949677228341388}
