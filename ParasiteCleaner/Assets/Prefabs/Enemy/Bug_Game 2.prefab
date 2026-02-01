@@ -1176,8 +1176,8 @@ Transform:
   m_GameObject: {fileID: 7013673753111801552}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.99, y: -3.88, z: 0}
-  m_LocalScale: {x: -0.7899215, y: 0.7899215, z: 0.7899215}
+  m_LocalPosition: {x: 6.1308, y: -4.7349, z: 0}
+  m_LocalScale: {x: -1.1568342, y: 1.1568342, z: 1.1568342}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3176794322942680512}
@@ -1191,6 +1191,7 @@ Transform:
   - {fileID: 511254247651230883}
   - {fileID: 7457476504720841550}
   - {fileID: 2640962239871423899}
+  - {fileID: 2639603997626107635}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6507691067056274437
@@ -1307,6 +1308,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  wallCheck: {fileID: 2639603997626107635}
+  wallCheckRadius: 0.2
   healthPoints: 3
   canMove: 1
 --- !u!114 &6994092528177673421
@@ -1322,7 +1325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackBug
   attackCooldown: 1
-  projectilePrefab: {fileID: 5039265681176185314, guid: 225cc66f2e0ec2942a5535c14d7778d6, type: 3}
+  projectilePrefab: {fileID: 5263970836160097954, guid: de30bd07d1b68af4e9387d0f191a398f, type: 3}
   shootPoint: {fileID: 7457476504720841550}
   attackFreezeTime: 1
 --- !u!1 &7286345528996935849
@@ -1464,6 +1467,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5011183404880876932}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8235763538798929507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2639603997626107635}
+  m_Layer: 0
+  m_Name: Wallcheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2639603997626107635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8235763538798929507}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.093, y: 0.87000006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8186852300036175539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8448234638741946122
 GameObject:

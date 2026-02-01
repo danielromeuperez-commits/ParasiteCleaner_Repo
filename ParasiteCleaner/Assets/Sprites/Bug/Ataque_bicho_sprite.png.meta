@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 894183d82ff59744ca53f6e108d23e64
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4821972828339158852
+    second: Ataque_bicho_sprite_0
+  - first:
+      213: 3578466402870767689
+    second: Ataque_bicho_sprite_1
+  - first:
+      213: -4711820013526591706
+    second: Ataque_bicho_sprite_2
+  - first:
+      213: -3073380115150252112
+    second: Ataque_bicho_sprite_3
+  - first:
+      213: 5682627299238430119
+    second: Ataque_bicho_sprite_4
+  - first:
+      213: -3201834832755608946
+    second: Ataque_bicho_sprite_5
+  - first:
+      213: -7833013755800214810
+    second: Ataque_bicho_sprite_6
+  - first:
+      213: -1851073305703377250
+    second: Ataque_bicho_sprite_7
+  - first:
+      213: -8836307625266063528
+    second: Ataque_bicho_sprite_8
+  - first:
+      213: -4058235714232824438
+    second: Ataque_bicho_sprite_9
+  - first:
+      213: -1215680546249988217
+    second: Ataque_bicho_sprite_10
+  - first:
+      213: 2823517919461902048
+    second: Ataque_bicho_sprite_11
+  - first:
+      213: -8645170718512093092
+    second: Ataque_bicho_sprite_12
+  - first:
+      213: 6798029032693590492
+    second: Ataque_bicho_sprite_13
+  - first:
+      213: 5665973857626882420
+    second: Ataque_bicho_sprite_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 3100
+        y: 104
+        width: 536
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44fbdbd4db61be240800000000000000
+      internalID: 4821972828339158852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 3338
+        y: 387
+        width: 38
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94038cfdb3449a130800000000000000
+      internalID: 3578466402870767689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 3841
+        y: 108
+        width: 524
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 627db2879a04c9eb0800000000000000
+      internalID: -4711820013526591706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 259
+        width: 45
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b758b891192955d0800000000000000
+      internalID: -3073380115150252112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 508
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a54b0abb6fbcde40800000000000000
+      internalID: 5682627299238430119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 254
+        width: 38
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8231240f2cc093d0800000000000000
+      internalID: -3201834832755608946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 102
+        width: 501
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e2a7cc7d7b8b4390800000000000000
+      internalID: -7833013755800214810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 1575
+        y: 103
+        width: 565
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e969758c2aaaf46e0800000000000000
+      internalID: -1851073305703377250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 2366
+        y: 103
+        width: 516
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857d0f518012f5580800000000000000
+      internalID: -8836307625266063528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 216
+        width: 95
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8d495e8e104ea7c0800000000000000
+      internalID: -4058235714232824438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 220
+        width: 74
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 787aa60fbf8012fe0800000000000000
+      internalID: -1215680546249988217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 2270
+        y: 224
+        width: 45
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e60a7e86962f2720800000000000000
+      internalID: 2823517919461902048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 3034
+        y: 228
+        width: 49
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c586a7c190f260880800000000000000
+      internalID: -8645170718512093092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 3777
+        y: 235
+        width: 40
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd96e724363775e50800000000000000
+      internalID: 6798029032693590492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ataque_bicho_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 189
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4710082343591ae40800000000000000
+      internalID: 5665973857626882420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ataque_bicho_sprite_0: 4821972828339158852
+      Ataque_bicho_sprite_1: 3578466402870767689
+      Ataque_bicho_sprite_10: -1215680546249988217
+      Ataque_bicho_sprite_11: 2823517919461902048
+      Ataque_bicho_sprite_12: -8645170718512093092
+      Ataque_bicho_sprite_13: 6798029032693590492
+      Ataque_bicho_sprite_14: 5665973857626882420
+      Ataque_bicho_sprite_2: -4711820013526591706
+      Ataque_bicho_sprite_3: -3073380115150252112
+      Ataque_bicho_sprite_4: 5682627299238430119
+      Ataque_bicho_sprite_5: -3201834832755608946
+      Ataque_bicho_sprite_6: -7833013755800214810
+      Ataque_bicho_sprite_7: -1851073305703377250
+      Ataque_bicho_sprite_8: -8836307625266063528
+      Ataque_bicho_sprite_9: -4058235714232824438
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

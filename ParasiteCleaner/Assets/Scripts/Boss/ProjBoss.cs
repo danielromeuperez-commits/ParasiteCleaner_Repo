@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class ProjectileBug : MonoBehaviour
+public class ProjBoss : MonoBehaviour
 {
+    [Header("Projectile Settings")]
     [SerializeField] float speed = 6f;
-    [SerializeField] float lifeTime = 2f;
+    [SerializeField] float lifeTime = 3f;
     [SerializeField] int damage = 1;
 
     Rigidbody2D rb;
@@ -18,21 +19,17 @@ public class ProjectileBug : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         Destroy(gameObject, lifeTime);
+
+        // Forzar flip en -X
+        Vector3 scale = transform.localScale;
+        scale.x = -Mathf.Abs(scale.x);
+        transform.localScale = scale;
     }
 
     public void SetDirection(Vector2 dir)
     {
         dir = dir.normalized;
-        rb.linearVelocity = dir * speed; // corregido de linearVelocity a velocity
-
-        // Ajustar el flip del sprite en X
-        Vector3 localScale = transform.localScale;
-        localScale.x = dir.x < 0 ? -Mathf.Abs(localScale.x) : Mathf.Abs(localScale.x);
-        transform.localScale = localScale;
-
-        // Opcional: rotar el sprite seg�n la direcci�n
-        // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        // transform.rotation = Quaternion.Euler(0, 0, angle);
+        rb.linearVelocity = dir * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -40,7 +37,9 @@ public class ProjectileBug : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             if (GameManager.Instance != null)
+            {
                 GameManager.Instance.playerHealth -= damage;
+            }
 
             Destroy(gameObject);
         }
