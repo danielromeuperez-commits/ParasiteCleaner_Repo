@@ -11,6 +11,10 @@ public class Enemy : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
 
+    [Header("Wall Check")]
+    public Transform wallCheck;
+    public float wallCheckRadius = 0.2f;
+
     [Header("Health")]
     public int healthPoints;
 
@@ -36,6 +40,9 @@ public class Enemy : MonoBehaviour
             return;
         }
 
+        // Patrullar (detectar paredes)
+        Patrol();
+
         // Mover siempre en la dirección actual
         float dir = isFacingRight ? 1f : -1f;
         transform.position += Vector3.right * dir * speed * Time.deltaTime;
@@ -48,6 +55,18 @@ public class Enemy : MonoBehaviour
 
         // Actualizar parámetro de animación
         anim.SetBool("Walk", true);
+    }
+
+    void Patrol()
+    {
+        if (wallCheck == null) return;
+
+        // Detecta colisión con pared
+        bool isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, groundLayer);
+        if (isTouchingWall)
+        {
+            Flip();
+        }
     }
 
     void Flip()
@@ -74,10 +93,18 @@ public class Enemy : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        // GroundCheck Gizmo
         if (groundCheck != null)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+
+        // WallCheck Gizmo
+        if (wallCheck != null)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(wallCheck.position, wallCheckRadius);
         }
     }
 }
