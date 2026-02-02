@@ -5,8 +5,8 @@ using System.Collections;
 public class PlayerController2D : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] float speed = 5f;
-    [SerializeField] float jumpForce = 12f;
+    [SerializeField] public float speed = 5f;
+    [SerializeField] public float jumpForce = 12f;
 
     [Header("Ground Check")]
     [SerializeField] Transform groundCheck;

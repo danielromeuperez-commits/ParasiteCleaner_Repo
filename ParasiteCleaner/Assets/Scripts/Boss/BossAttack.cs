@@ -1,42 +1,24 @@
 using UnityEngine;
 using System.Collections;
 
-public class BossAttack : MonoBehaviour
+public class BossAttackAction : MonoBehaviour
 {
+    [Header("References")]
+    public GameObject shootPoint;
+    public Transform playerTransform;
+    public GameObject attackPrefab;
+
     [Header("Attack Config")]
-    public GameObject shootPoint;       // GameObject vacío desde donde se dispara
-    public Transform playerTransform;    // Referencia al jugador
-    public float attackSpeed = 10f;      // Velocidad del proyectil
-    public float duration = 2f;          // Tiempo que dura activo el proyectil
-    public GameObject attackPrefab;      // Prefab del proyectil
+    public float attackSpeed = 10f;
+    public float projectileDuration = 2f;
 
-    [Header("Attack Interval")]
-    public float attackInterval = 1f;    // Tiempo entre cada ataque
-    private bool attacking = false;
-
-    private void Start()
+    // ===================== EVENTO DE ANIMACIÓN =====================
+    // ESTE MÉTODO SE LLAMA DESDE EL ANIMATOR EN EL FRAME DE DISPARO
+    public void Shoot()
     {
-        if (shootPoint != null && playerTransform != null && attackPrefab != null)
-        {
-            attacking = true;
-            StartCoroutine(AutoAttack());
-        }
-    }
+        if (shootPoint == null || playerTransform == null || attackPrefab == null)
+            return;
 
-    // Corrutina que dispara automáticamente cada 'attackInterval'
-    IEnumerator AutoAttack()
-    {
-        while (attacking)
-        {
-            Attack1();
-            yield return new WaitForSeconds(attackInterval);
-        }
-    }
-
-    // ===================== ATAQUE =====================
-    void Attack1()
-    {
-        // Spawn del proyectil alineado con Y del jugador
         Vector3 spawnPos = new Vector3(
             shootPoint.transform.position.x,
             playerTransform.position.y,
@@ -49,16 +31,16 @@ public class BossAttack : MonoBehaviour
         if (rb != null)
         {
             rb.gravityScale = 0;
-            rb.linearVelocity = Vector2.left * attackSpeed;
+            rb.linearVelocity = Vector2.left * attackSpeed; // Se puede ajustar a dirección hacia el jugador si quieres
         }
 
-        StartCoroutine(DesactivarDespues(proj, duration));
+        StartCoroutine(DisableAfterTime(proj, projectileDuration));
     }
 
-    // ===================== UTILIDADES =====================
-    IEnumerator DesactivarDespues(GameObject obj, float tiempo)
+    // ===================== UTIL =====================
+    IEnumerator DisableAfterTime(GameObject obj, float time)
     {
-        yield return new WaitForSeconds(tiempo);
+        yield return new WaitForSeconds(time);
         if (obj != null)
             obj.SetActive(false);
     }

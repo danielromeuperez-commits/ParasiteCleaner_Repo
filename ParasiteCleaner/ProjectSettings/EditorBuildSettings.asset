@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LVL_Cave.unity
     guid: 21978069610da2f42ab90aee8a712f7b
   - enabled: 1
-    path: Assets/Scenes/SCN_MID.unity
+    path: Assets/Scenes/LVL_MID.unity
     guid: 4cca843fcb5ba394fba7ee6867c9d423
   - enabled: 1
     path: Assets/Scenes/LVL_Bossfight.unity

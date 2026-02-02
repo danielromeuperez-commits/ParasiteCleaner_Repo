@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a1f9f01d851f54ab03f742509089bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  playerHealth: 100
-  maxHealth: 100
-  playerPoints: 0
+  maxHealth: 10
+  playerHealth: 10
+  fadeImage: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
+  fadeDuration: 1
+  delayBeforeGameOver: 2
