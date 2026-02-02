@@ -187,7 +187,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5324110180094186990}
   - component: {fileID: 9215164271383430441}
-  - component: {fileID: 9172963786267603604}
   m_Layer: 5
   m_Name: PanelBars
   m_TagString: Untagged
@@ -224,20 +223,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8463090000162654401}
   m_CullTransparentMesh: 1
---- !u!114 &9172963786267603604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8463090000162654401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c7e4fa626d42a34dbd145d877ff5913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthUI
-  healthFill: {fileID: 8764508483078271654}
-  smoothSpeed: 5
 --- !u!1 &8877595108257044725
 GameObject:
   m_ObjectHideFlags: 0

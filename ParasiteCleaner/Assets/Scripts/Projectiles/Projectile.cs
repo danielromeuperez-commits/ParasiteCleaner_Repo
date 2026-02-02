@@ -7,22 +7,33 @@ public class Projectile : MonoBehaviour
     public bool isFacingRight;
     public int damage;
 
-    void Update()
+    private SpriteRenderer projectileRend;
+
+    private void Awake()
     {
-        ProjectileMove();
+        projectileRend = GetComponent<SpriteRenderer>();
+
+
+
+        // Desactivar automáticamente después de 10 segundos
+        Destroy(gameObject, 10f);
     }
 
-    void ProjectileMove()
+    private void Update()
     {
-        if (isFacingRight)
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-        else
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
+        // Mover el proyectil
+        float moveDirection = isFacingRight ? 1f : -1f;
+        transform.Translate(Vector3.right * moveDirection * speed * Time.deltaTime);
+
+        // Flip del sprite según isFacingRight
+        Vector3 localScale = transform.localScale;
+        localScale.x = isFacingRight ? Mathf.Abs(localScale.x) : -Mathf.Abs(localScale.x);
+        transform.localScale = localScale;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Enemy
+        // Golpea enemigo
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy != null)
         {
@@ -31,12 +42,13 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        //Boss
+        // Golpea boss
         Boss boss = collision.GetComponent<Boss>();
         if (boss != null)
         {
             boss.TakeDamage(damage);
             gameObject.SetActive(false);
+            return;
         }
     }
 }
