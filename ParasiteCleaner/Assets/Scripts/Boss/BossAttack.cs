@@ -26,6 +26,7 @@ public class BossAttackAction : MonoBehaviour
         );
 
         GameObject proj = Instantiate(attackPrefab, spawnPos, Quaternion.identity);
+        AudioManager.Instance.PlaySFX(11);
 
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         if (rb != null)

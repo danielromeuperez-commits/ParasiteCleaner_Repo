@@ -13,8 +13,7 @@ public class Projectile : MonoBehaviour
     {
         projectileRend = GetComponent<SpriteRenderer>();
 
-
-
+        AudioManager.Instance.PlaySFX(1);
         // Desactivar automáticamente después de 10 segundos
         Destroy(gameObject, 10f);
     }
@@ -30,6 +29,12 @@ public class Projectile : MonoBehaviour
         localScale.x = isFacingRight ? Mathf.Abs(localScale.x) : -Mathf.Abs(localScale.x);
         transform.localScale = localScale;
     }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

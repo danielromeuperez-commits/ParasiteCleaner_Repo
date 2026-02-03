@@ -86,6 +86,7 @@ public class PlayerController2D : MonoBehaviour
 
         jumpLocked = true;
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        AudioManager.Instance.PlaySFX(2);
     }
 
     // ================= SHOOT =================
@@ -113,6 +114,11 @@ public class PlayerController2D : MonoBehaviour
 
         yield return new WaitForSeconds(shootCooldown);
         canShoot = true;
+    }
+    public void PlayStepSFX()
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySFX(3);
     }
 
     // ================= INPUT =================
