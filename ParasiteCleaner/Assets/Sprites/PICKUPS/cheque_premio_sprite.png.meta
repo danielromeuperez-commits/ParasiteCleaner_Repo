@@ -121,7 +121,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -159,7 +159,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -239,12 +239,12 @@ TextureImporter:
       name: cheque_premio_sprite_0
       rect:
         serializedVersion: 2
-        x: 108
-        y: 971
-        width: 45
-        height: 86
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -261,12 +261,12 @@ TextureImporter:
       name: cheque_premio_sprite_1
       rect:
         serializedVersion: 2
-        x: 1672
-        y: 973
-        width: 79
-        height: 94
+        x: 1920
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -283,12 +283,12 @@ TextureImporter:
       name: cheque_premio_sprite_2
       rect:
         serializedVersion: 2
-        x: 3946
-        y: 988
-        width: 43
-        height: 80
+        x: 3840
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -305,12 +305,12 @@ TextureImporter:
       name: cheque_premio_sprite_3
       rect:
         serializedVersion: 2
-        x: 5532
-        y: 994
-        width: 72
-        height: 80
+        x: 5760
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -327,12 +327,12 @@ TextureImporter:
       name: cheque_premio_sprite_4
       rect:
         serializedVersion: 2
-        x: 7783
-        y: 1009
-        width: 45
-        height: 70
+        x: 7680
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -345,539 +345,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_5
-      rect:
-        serializedVersion: 2
-        x: 9393
-        y: 1018
-        width: 62
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ccc2240b5d14ab40800000000000000
-      internalID: 5450513725773761737
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_6
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 908
-        width: 76
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ab6bbf5f1d16a4bb0800000000000000
-      internalID: -4951037285937465670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_7
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 99
-        width: 1589
-        height: 857
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 959421a89629c3f40800000000000000
-      internalID: 5709599409584621913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_8
-      rect:
-        serializedVersion: 2
-        x: 1783
-        y: 911
-        width: 88
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d0d02968b8607c0f0800000000000000
-      internalID: -1096900787913487091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_9
-      rect:
-        serializedVersion: 2
-        x: 2068
-        y: 99
-        width: 1589
-        height: 857
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: afbc25ae6783ff340800000000000000
-      internalID: 4899697002990980090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_10
-      rect:
-        serializedVersion: 2
-        x: 3874
-        y: 920
-        width: 70
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 13a013e2584343d20800000000000000
-      internalID: 3257286177105971761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_11
-      rect:
-        serializedVersion: 2
-        x: 3988
-        y: 99
-        width: 1589
-        height: 857
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9d0c95d06ba1426e0800000000000000
-      internalID: -1863334976614186791
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_12
-      rect:
-        serializedVersion: 2
-        x: 5652
-        y: 930
-        width: 74
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e80e63ed46f1205e0800000000000000
-      internalID: -1944957570985303922
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_13
-      rect:
-        serializedVersion: 2
-        x: 5908
-        y: 99
-        width: 1589
-        height: 857
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ce5afa900ba39020800000000000000
-      internalID: 2347407849878609609
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_14
-      rect:
-        serializedVersion: 2
-        x: 7694
-        y: 933
-        width: 71
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 90a5471af94f52820800000000000000
-      internalID: 2892987302101146121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_15
-      rect:
-        serializedVersion: 2
-        x: 7828
-        y: 99
-        width: 1589
-        height: 857
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 214f25ed9c1898f60800000000000000
-      internalID: 8037097714037748754
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_16
-      rect:
-        serializedVersion: 2
-        x: 9514
-        y: 947
-        width: 71
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 75321f1a623ab3190800000000000000
-      internalID: -7981606528263052457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_17
-      rect:
-        serializedVersion: 2
-        x: 45
-        y: 86
-        width: 85
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c46e0db98bfd5540800000000000000
-      internalID: 4998427730452047041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_18
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 27
-        width: 57
-        height: 89
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a717b36b6f227e070800000000000000
-      internalID: 8135509694882738554
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_19
-      rect:
-        serializedVersion: 2
-        x: 1731
-        y: 20
-        width: 69
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 955fa6bd1e167c2a0800000000000000
-      internalID: -6717292696523049639
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_20
-      rect:
-        serializedVersion: 2
-        x: 1775
-        y: 69
-        width: 89
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8fe09f222a3e01a0800000000000000
-      internalID: -6841466865427878006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_21
-      rect:
-        serializedVersion: 2
-        x: 3876
-        y: 69
-        width: 76
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1d1ac4e179c5dd840800000000000000
-      internalID: 5250454544702022097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_22
-      rect:
-        serializedVersion: 2
-        x: 3944
-        y: 11
-        width: 59
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f08e45f9a741dacc0800000000000000
-      internalID: -3698277202109601777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_23
-      rect:
-        serializedVersion: 2
-        x: 5586
-        y: 9
-        width: 78
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 451bae5085659f250800000000000000
-      internalID: 5978904916367421780
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_24
-      rect:
-        serializedVersion: 2
-        x: 5640
-        y: 55
-        width: 84
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 54a4037258bc75480800000000000000
-      internalID: -8910429564980671931
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_25
-      rect:
-        serializedVersion: 2
-        x: 7707
-        y: 46
-        width: 75
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cfbbf5fcdfeed89a0800000000000000
-      internalID: -6229059935710233604
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_26
-      rect:
-        serializedVersion: 2
-        x: 9492
-        y: 49
-        width: 91
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d4273df73ca377ac0800000000000000
-      internalID: -3857549944481942963
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_27
-      rect:
-        serializedVersion: 2
-        x: 7786
-        y: 5
-        width: 59
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 49119066cafef4200800000000000000
-      internalID: 166615234961281428
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cheque_premio_sprite_28
-      rect:
-        serializedVersion: 2
-        x: 9451
-        y: 5
-        width: 81
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 70093427cd687fa40800000000000000
-      internalID: 5401934559422156807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0c96f7b268b738640aca6277e7db674c
     internalID: 0
     vertices: []
     indices: 
@@ -885,37 +357,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":1920.0,"y":1080.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       cheque_premio_sprite_0: 2851919727993385128
       cheque_premio_sprite_1: 3831201221920680870
-      cheque_premio_sprite_10: 3257286177105971761
-      cheque_premio_sprite_11: -1863334976614186791
-      cheque_premio_sprite_12: -1944957570985303922
-      cheque_premio_sprite_13: 2347407849878609609
-      cheque_premio_sprite_14: 2892987302101146121
-      cheque_premio_sprite_15: 8037097714037748754
-      cheque_premio_sprite_16: -7981606528263052457
-      cheque_premio_sprite_17: 4998427730452047041
-      cheque_premio_sprite_18: 8135509694882738554
-      cheque_premio_sprite_19: -6717292696523049639
       cheque_premio_sprite_2: 20517258182225923
-      cheque_premio_sprite_20: -6841466865427878006
-      cheque_premio_sprite_21: 5250454544702022097
-      cheque_premio_sprite_22: -3698277202109601777
-      cheque_premio_sprite_23: 5978904916367421780
-      cheque_premio_sprite_24: -8910429564980671931
-      cheque_premio_sprite_25: -6229059935710233604
-      cheque_premio_sprite_26: -3857549944481942963
-      cheque_premio_sprite_27: 166615234961281428
-      cheque_premio_sprite_28: 5401934559422156807
       cheque_premio_sprite_3: -7602578936302390386
       cheque_premio_sprite_4: 7153736330823445451
-      cheque_premio_sprite_5: 5450513725773761737
-      cheque_premio_sprite_6: -4951037285937465670
-      cheque_premio_sprite_7: 5709599409584621913
-      cheque_premio_sprite_8: -1096900787913487091
-      cheque_premio_sprite_9: 4899697002990980090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
