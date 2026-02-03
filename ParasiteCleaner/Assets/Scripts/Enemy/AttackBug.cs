@@ -49,6 +49,7 @@ public class AttackBug : MonoBehaviour
         if (projectilePrefab != null && shootPoint != null && enemy != null)
         {
             GameObject projGO = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+            AudioManager.Instance.PlaySFX(8);
             ProjectileBug proj = projGO.GetComponent<ProjectileBug>();
             if (proj != null)
             {

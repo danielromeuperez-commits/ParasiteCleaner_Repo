@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
                 // Limitar al máximo
                 if (GameManager.Instance.playerHealth > GameManager.Instance.maxHealth)
                     GameManager.Instance.playerHealth = GameManager.Instance.maxHealth;
+                AudioManager.Instance.PlaySFX(4);
             }
 
             Destroy(gameObject); // opcional
