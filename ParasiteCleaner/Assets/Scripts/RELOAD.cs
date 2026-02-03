@@ -11,15 +11,12 @@ public class RELOAD : MonoBehaviour
 
             GameManager.Instance.playerHealth = GameManager.Instance.maxHealth;
 
-
-            // Como en tu GameManager es private, usamos reflection para mantenerlo seguro
             var gameOverField = typeof(GameManager).GetField("gameOverTriggered",
                                        System.Reflection.BindingFlags.NonPublic |
                                        System.Reflection.BindingFlags.Instance);
             if (gameOverField != null)
                 gameOverField.SetValue(GameManager.Instance, false);
 
-            // Asegurarse de que Time.timeScale esté activo
             Time.timeScale = 1f;
         }
 

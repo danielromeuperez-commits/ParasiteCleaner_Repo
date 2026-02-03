@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4af8a3ca2d65545b03051d935fe370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  speed: 15
+  speed: 30
   isFacingRight: 0
   damage: 5
 --- !u!50 &9049093261254086346
