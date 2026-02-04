@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d7ce613caf9fb034fa9ba288c724a949
+guid: f2099e8213933b6488c0377d46b6cdbc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1723341313529455366
-    second: pilar_0
+      213: -8424191318893815479
+    second: "se\xF1al caida_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pilar_0
+      name: "se\xF1al caida_0"
       rect:
         serializedVersion: 2
-        x: 556
-        y: 30
-        width: 832
-        height: 1973
+        x: 43
+        y: 36
+        width: 381
+        height: 890
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 603ada34bc98ae710800000000000000
-      internalID: 1723341313529455366
+      spriteID: 9499765f0a2471b80800000000000000
+      internalID: -8424191318893815479
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pilar_0: 1723341313529455366
+      "se\xF1al caida_0": -8424191318893815479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,6 +128,7 @@ public class PlayerController2D : MonoBehaviour
         moveInput = ctx.ReadValue<Vector2>();
     }
 
+
     public void OnJump(InputAction.CallbackContext ctx)
     {
         if (ctx.performed) Jump();
@@ -138,6 +139,7 @@ public class PlayerController2D : MonoBehaviour
         if (ctx.performed) Shoot();
     }
 
+
     // ================= DEATH =================
     public void Die()
     {
@@ -147,7 +149,7 @@ public class PlayerController2D : MonoBehaviour
         anim.SetTrigger("Death");
         moveInput = Vector2.zero;
         rb.linearVelocity = Vector2.zero;
-
+        AudioManager.Instance.PlaySFX(12);
         GameManager.Instance.OnPlayerDied();
     }
 
