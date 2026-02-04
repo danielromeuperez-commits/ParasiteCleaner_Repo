@@ -11,6 +11,9 @@ public class Boss : MonoBehaviour
     public float moveUpDistance = 3f;
     public float moveSpeed = 2f;
 
+    [Header("Trampas a desactivar")]
+    public Collider2D[] trapColliders;
+
     private bool isMoving = false;
     private Vector3 targetPosition;
 
@@ -31,6 +34,14 @@ public class Boss : MonoBehaviour
             canvasToDisable.gameObject.SetActive(false);
         }
 
+        if (trapColliders != null && trapColliders.Length > 0)
+        {
+            foreach (Collider2D col in trapColliders)
+            {
+                if (col != null)
+                    col.enabled = false;
+            }
+        }
         if (objectToActivate != null)
         {
             objectToActivate.SetActive(true);
