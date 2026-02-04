@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class ReloadScene : MonoBehaviour
 {
     [Header("Scene to Load")]
-    public string sceneName; // Nombre de la escena que quieres cargar
+    public string sceneName;
 
     public void LoadScene()
     {
@@ -20,7 +20,6 @@ public class ReloadScene : MonoBehaviour
             }
         }
 
-        // Cargar la escena deseada
         if (!string.IsNullOrEmpty(sceneName))
         {
             SceneManager.LoadScene(sceneName);

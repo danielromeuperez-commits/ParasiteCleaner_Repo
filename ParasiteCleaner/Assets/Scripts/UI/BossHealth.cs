@@ -10,10 +10,10 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private float smoothSpeeds = 5f;
 
     [Header("Boss Reference")]
-    [SerializeField] private Boss boss; // referencia directa al Boss
+    [SerializeField] private Boss boss;
 
     [Header("Boss Max Health")]
-    [SerializeField] private int bossMaxHealth = 3; // AJÚSTALO AL MISMO VALOR DEL BOSS
+    [SerializeField] private int bossMaxHealth = 3;
 
     void Update()
     {

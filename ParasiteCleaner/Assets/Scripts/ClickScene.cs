@@ -6,7 +6,6 @@ public class ClickScene : MonoBehaviour
     [Header("Nombre de la escena a cargar")]
     public string sceneName;
 
-    // Función pública para llamar desde el botón
     public void LoadScene()
     {
         if (!string.IsNullOrEmpty(sceneName))

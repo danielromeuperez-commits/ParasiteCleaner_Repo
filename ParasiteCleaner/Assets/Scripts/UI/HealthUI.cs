@@ -4,10 +4,10 @@ using UnityEngine.UI;
 public class HealthUI : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private Image healthFill;  // Imagen que tiene Image Type = Filled, Horizontal
+    [SerializeField] private Image healthFill;
 
     [Header("Smooth Fill")]
-    [SerializeField] private float smoothSpeed = 5f; // Para suavizar la barra
+    [SerializeField] private float smoothSpeed = 5f;
 
     void Update()
     {

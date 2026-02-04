@@ -4,10 +4,10 @@ public class RisingObject : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] float riseSpeed = 2f;      // VELOCIDAD AJUSTABLE
-    [SerializeField] float riseDistance = 6f;   // CUÁNTO SUBE
+    [SerializeField] float riseDistance = 6f;   // CUANTO SUBE
 
     [Header("Lifetime")]
-    [SerializeField] float lifeTime = 10f;      // CUÁNTO TIEMPO EXISTE
+    [SerializeField] float lifeTime = 10f;      // CUANTO TIEMPO EXISTE
 
     Vector3 startPos;
 

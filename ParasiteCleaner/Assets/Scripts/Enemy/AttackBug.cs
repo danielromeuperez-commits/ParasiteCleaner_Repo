@@ -35,17 +35,13 @@ public class AttackBug : MonoBehaviour
         isAttacking = true;
         attackTimer = attackCooldown;
 
-        // Congelar movimiento del Enemy 
         if (enemy != null) enemy.canMove = false;
 
-        // Congelar Rigidbody momentáneamente 
         float originalXVelocity = rb.linearVelocity.x;
         rb.linearVelocity = Vector2.zero;
 
-        // Animación de ataque con parámetro 
         if (anim != null) anim.SetBool("Attack", true);
 
-        // Instanciar proyectil 
         if (projectilePrefab != null && shootPoint != null && enemy != null)
         {
             GameObject projGO = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
@@ -57,15 +53,11 @@ public class AttackBug : MonoBehaviour
                 proj.SetDirection(dir);
             }
         }
-
-        // Esperar mientras está congelado 
         yield return new WaitForSeconds(attackFreezeTime);
 
-        // Restaurar movimiento 
         rb.linearVelocity = new Vector2(originalXVelocity, rb.linearVelocity.y);
         if (enemy != null) enemy.canMove = true;
 
-        // Terminar animación de ataque 
         if (anim != null) anim.SetBool("Attack", false);
         isAttacking = false;
     }

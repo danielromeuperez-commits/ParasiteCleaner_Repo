@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [Header("Nombre de la escena a cargar")]
-    public string sceneName; // Nombre exacto de la escena que quieres cargar
+    public string sceneName;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

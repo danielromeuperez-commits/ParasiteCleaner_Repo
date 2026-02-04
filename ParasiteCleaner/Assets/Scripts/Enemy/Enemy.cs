@@ -116,8 +116,8 @@ public class Enemy : MonoBehaviour
             col.enabled = false;
         }
 
-        enabled = false; // desactiva este script
-        Destroy(gameObject, 1.5f); // tiempo = duración de partículas
+        enabled = false;
+        Destroy(gameObject, 1.5f);
     }
 
     private void OnDrawGizmosSelected()

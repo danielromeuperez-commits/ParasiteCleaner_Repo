@@ -25,14 +25,12 @@ public class BigShot : MonoBehaviour
 
     void Update()
     {
-        // ================= BLOQUEO SI NO ESTÁ EN EL SUELO =================
         if (!player.IsGrounded)
         {
-            if (isCharging) ReleaseCharge(); // cancelar carga si está en el aire
-            return; // no permitir iniciar carga
+            if (isCharging) ReleaseCharge();
+            return;
         }
 
-        // ================= INPUT =================
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
             StartCharge();
 
@@ -40,7 +38,6 @@ public class BigShot : MonoBehaviour
         {
             chargeCounter += Time.deltaTime;
 
-            // Cuando termina de cargar
             if (!chargedReady && chargeCounter >= chargeTime)
                 FullyCharged();
         }
@@ -49,22 +46,16 @@ public class BigShot : MonoBehaviour
             ReleaseCharge();
     }
 
-    // ================= CHARGE =================
-
     void StartCharge()
     {
-        if (!player.IsGrounded) return; // seguridad extra
+        if (!player.IsGrounded) return;
 
         isCharging = true;
         chargeCounter = 0f;
         chargedReady = false;
-
-        // Bloquear movimiento y animación del jugador
         player.enabled = false;
         player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         player.GetComponent<Animator>().SetBool("IsBigShotCharging", true);
-
-        // Feedback visual (parpadeo)
         if (blinkRoutine != null)
             StopCoroutine(blinkRoutine);
 
@@ -78,23 +69,20 @@ public class BigShot : MonoBehaviour
         if (blinkRoutine != null)
             StopCoroutine(blinkRoutine);
 
-        spriteRenderer.color = chargedColor; // color sólido al estar full
+        spriteRenderer.color = chargedColor;
     }
 
     void ReleaseCharge()
     {
         isCharging = false;
 
-        // Desbloquear jugador
         player.enabled = true;
         player.GetComponent<Animator>().SetBool("IsBigShotCharging", false);
 
-        // Reset visual
         if (blinkRoutine != null)
             StopCoroutine(blinkRoutine);
         spriteRenderer.color = Color.white;
 
-        // Solo disparar si está en el suelo
         if (chargedReady && player.IsGrounded)
         {
             GameObject proj = Instantiate(chargedProjectile, shootPoint.position, Quaternion.identity);
@@ -112,8 +100,6 @@ public class BigShot : MonoBehaviour
         chargeCounter = 0f;
         isCharging = false;
     }
-
-    // ================= VISUAL =================
 
     IEnumerator BlinkColor()
     {
