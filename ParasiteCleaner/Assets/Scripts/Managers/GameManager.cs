@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public bool IsPlayerDead => playerHealth <= 0;
 
     [Header("Game Over")]
-    public Image fadeImage; // Opcional, si quieres fade negro
+    public Image fadeImage;
     public Canvas gameOverCanvas; // Será buscado automáticamente si es null
     public float fadeDuration = 1f;
     public float delayBeforeGameOver = 2f;
@@ -60,9 +60,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOverSequence()
     {
-        yield return new WaitForSecondsRealtime(delayBeforeGameOver); // No depende de Time.timeScale
+        yield return new WaitForSecondsRealtime(delayBeforeGameOver);
 
-        // Si no se asignó fadeImage, intentar buscarlo automáticamente
         if (fadeImage == null)
         {
             GameObject fadeObj = GameObject.Find("FadeImage");
@@ -86,7 +85,6 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0f;
 
-        // Buscar automáticamente el GameOver Canvas si no está asignado
         if (gameOverCanvas == null)
         {
             GameObject canvasObj = GameObject.Find("GameOver");
@@ -111,7 +109,6 @@ public class GameManager : MonoBehaviour
         playerHealth = maxHealth;
         gameOverTriggered = false;
 
-        // Si no está asignado, buscar el Canvas automáticamente
         if (gameOverCanvas == null)
         {
             GameObject canvasObj = GameObject.Find("GameOver");

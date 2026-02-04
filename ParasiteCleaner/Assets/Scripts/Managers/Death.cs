@@ -3,7 +3,7 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     [Header("Settings")]
-    public string playerTag = "Player"; // Tag del jugador
+    public string playerTag = "Player";
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -11,9 +11,9 @@ public class Death : MonoBehaviour
         {
             if (GameManager.Instance != null)
             {
-                // Poner la vida a 0
+
                 GameManager.Instance.playerHealth = 0;
-                // Llamar al método de muerte
+
                 GameManager.Instance.OnPlayerDied();
 
                 Debug.Log("Player tocó el collider: vida = 0");

@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class RELOAD : MonoBehaviour
 {
-    // ================== RECARGAR ESCENA ACTUAL ==================
     public void ReloadScene()
     {
         if (GameManager.Instance != null)
@@ -25,7 +24,6 @@ public class RELOAD : MonoBehaviour
         SceneManager.LoadScene(currentScene.buildIndex);
     }
 
-    // ================== CARGAR ESCENA POR NOMBRE ==================
 
     public void LoadScene(string sceneName)
     {

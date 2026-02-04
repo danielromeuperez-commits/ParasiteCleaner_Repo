@@ -10,12 +10,13 @@ public class PlatformsAttack : MonoBehaviour
     [Header("Blink")]
     [SerializeField] Color blinkColor = Color.red;
     [SerializeField] float blinkSpeed = 0.15f;
+    [SerializeField] SpriteRenderer blinkTarget;  // El SpriteRenderer que parpadea
 
     [Header("Spawn")]
-    [SerializeField] Transform spawnPoint;   // GameObject vacío
+    [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject risingPrefab;
 
-    SpriteRenderer sr;
+    SpriteRenderer spriter;
     Color originalColor;
 
     Coroutine mainCoroutine;
@@ -23,27 +24,29 @@ public class PlatformsAttack : MonoBehaviour
 
     void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
-        originalColor = sr.color;
+        spriter = GetComponent<SpriteRenderer>();
+        originalColor = blinkTarget != null ? blinkTarget.color : spriter.color;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+void OnTriggerEnter2D(Collider2D col)
     {
-        if (!col.CompareTag("Player")) return;
+        if (!CompareTag("BlinkSpawnTrigger")) return;
 
-        if (mainCoroutine == null)
+        if (col.CompareTag("Player") && mainCoroutine == null)
             mainCoroutine = StartCoroutine(PlatformSequence(col.transform));
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
+        if (!CompareTag("BlinkSpawnTrigger")) return;
         if (!col.CompareTag("Player")) return;
 
         StopAllCoroutines();
         mainCoroutine = null;
         blinkCoroutine = null;
-        sr.color = originalColor;
+        blinkTarget.color = originalColor;
     }
+
 
     IEnumerator PlatformSequence(Transform player)
     {
@@ -58,18 +61,23 @@ public class PlatformsAttack : MonoBehaviour
         if (blinkCoroutine != null)
             StopCoroutine(blinkCoroutine);
 
-        sr.color = originalColor;
+        if (blinkTarget != null)
+            blinkTarget.color = originalColor;
+        else
+            spriter.color = originalColor;
 
         SpawnObject(player);
     }
 
     IEnumerator BlinkRed()
     {
+        SpriteRenderer target = blinkTarget != null ? blinkTarget : spriter;
+
         while (true)
         {
-            sr.color = blinkColor;
+            target.color = blinkColor;
             yield return new WaitForSeconds(blinkSpeed);
-            sr.color = originalColor;
+            target.color = originalColor;
             yield return new WaitForSeconds(blinkSpeed);
         }
     }

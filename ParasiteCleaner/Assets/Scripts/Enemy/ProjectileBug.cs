@@ -23,16 +23,11 @@ public class ProjectileBug : MonoBehaviour
     public void SetDirection(Vector2 dir)
     {
         dir = dir.normalized;
-        rb.linearVelocity = dir * speed; // corregido de linearVelocity a velocity
+        rb.linearVelocity = dir * speed; 
 
-        // Ajustar el flip del sprite en X
         Vector3 localScale = transform.localScale;
         localScale.x = dir.x < 0 ? -Mathf.Abs(localScale.x) : Mathf.Abs(localScale.x);
         transform.localScale = localScale;
-
-        // Opcional: rotar el sprite seg�n la direcci�n
-        // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        // transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

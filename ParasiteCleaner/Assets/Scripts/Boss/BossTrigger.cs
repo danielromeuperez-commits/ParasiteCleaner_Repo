@@ -15,7 +15,6 @@ public class BossAttackTrigger : MonoBehaviour
         if (animator == null)
             animator = GetComponent<Animator>();
 
-        // Comienza la rutina para activar el trigger cada attackCooldown segundos
         StartCoroutine(TriggerAttackRoutine());
     }
 

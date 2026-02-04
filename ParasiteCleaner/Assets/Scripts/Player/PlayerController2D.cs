@@ -40,7 +40,7 @@ public class PlayerController2D : MonoBehaviour
 
     void Update()
     {
-        // ESCUCHA AL GAMEMANAGER
+        //GAMEMANAGER
         if (!isDead && GameManager.Instance != null && GameManager.Instance.IsPlayerDead)
         {
             Die();
@@ -79,7 +79,6 @@ public class PlayerController2D : MonoBehaviour
         transform.localScale = scale;
     }
 
-    // ================= JUMP =================
     void Jump()
     {
         if (!isGrounded || jumpLocked || isDead) return;
@@ -89,7 +88,6 @@ public class PlayerController2D : MonoBehaviour
         AudioManager.Instance.PlaySFX(2);
     }
 
-    // ================= SHOOT =================
     void Shoot()
     {
         if (!canShoot || !isGrounded || isDead) return;
@@ -138,9 +136,6 @@ public class PlayerController2D : MonoBehaviour
     {
         if (ctx.performed) Shoot();
     }
-
-
-    // ================= DEATH =================
     public void Die()
     {
         if (isDead) return;
