@@ -3725,7 +3725,7 @@ MonoBehaviour:
   bosshealthFill: {fileID: 1550409513}
   smoothSpeeds: 5
   boss: {fileID: 1973558105}
-  bossMaxHealth: 100
+  bossMaxHealth: 80
 --- !u!1001 &1743918698
 PrefabInstance:
   m_ObjectHideFlags: 0
