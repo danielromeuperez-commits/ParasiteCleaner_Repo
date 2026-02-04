@@ -12,9 +12,11 @@ public class Pickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController2D player = collision.GetComponent<PlayerController2D>();
+
         if (player != null && !pickedUp)
         {
             pickedUp = true;
+
             if (animator != null)
             {
                 animator.SetBool(pickupBoolName, true);
@@ -38,10 +40,7 @@ public class Pickup : MonoBehaviour
     {
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         float animationLength = stateInfo.length;
-
         yield return new WaitForSeconds(animationLength);
-
-
         gameObject.SetActive(false);
     }
 }
