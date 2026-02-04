@@ -16,7 +16,7 @@ public class ProjectileBug : MonoBehaviour
 
         rb.gravityScale = 0;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-
+        AudioManager.Instance.PlaySFX(11);
         Destroy(gameObject, lifeTime);
     }
 

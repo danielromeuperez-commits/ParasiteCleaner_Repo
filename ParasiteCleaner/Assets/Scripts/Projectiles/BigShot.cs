@@ -98,8 +98,8 @@ public class BigShot : MonoBehaviour
         if (chargedReady && player.IsGrounded)
         {
             GameObject proj = Instantiate(chargedProjectile, shootPoint.position, Quaternion.identity);
+            AudioManager.Instance.PlaySFX(0);
             proj.GetComponent<Projectile>().isFacingRight = player.IsFacingRight;
-
             player.GetComponent<Animator>().SetTrigger("BigShot");
         }
 

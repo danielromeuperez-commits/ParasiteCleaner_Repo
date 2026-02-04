@@ -18,10 +18,14 @@ public class Enemy : MonoBehaviour
     [Header("Health")]
     public int healthPoints;
 
+    [Header("Death Effects")]
+    public ParticleSystem deathParticles;
+
     [HideInInspector] public bool canMove = true;
 
     private bool isGrounded;
     private Animator anim;
+    private bool isDead = false;
 
     void Awake()
     {
@@ -30,30 +34,30 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        // Check si toca el suelo
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        if (isDead) return;
 
-        // Detenerse si no puede moverse
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            groundCheckRadius,
+            groundLayer
+        );
+
         if (!canMove)
         {
             anim.SetBool("Walk", false);
             return;
         }
 
-        // Patrullar (detectar paredes)
         Patrol();
 
-        // Mover siempre en la dirección actual
         float dir = isFacingRight ? 1f : -1f;
         transform.position += Vector3.right * dir * speed * Time.deltaTime;
 
-        // Flip automático al caer del suelo
         if (!isGrounded)
         {
             Flip();
         }
 
-        // Actualizar parámetro de animación
         anim.SetBool("Walk", true);
     }
 
@@ -61,8 +65,12 @@ public class Enemy : MonoBehaviour
     {
         if (wallCheck == null) return;
 
-        // Detecta colisión con pared
-        bool isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, groundLayer);
+        bool isTouchingWall = Physics2D.OverlapCircle(
+            wallCheck.position,
+            wallCheckRadius,
+            groundLayer
+        );
+
         if (isTouchingWall)
         {
             Flip();
@@ -79,7 +87,10 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         healthPoints -= damage;
+
         if (healthPoints <= 0)
         {
             Die();
@@ -88,19 +99,35 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        gameObject.SetActive(false);
+        if (isDead) return;
+        isDead = true;
+
+        canMove = false;
+        anim.SetBool("Walk", false);
+
+        if (deathParticles != null)
+        {
+            deathParticles.Play();
+        }
+        AudioManager.Instance.PlaySFX(7);
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
+        enabled = false; // desactiva este script
+        Destroy(gameObject, 1.5f); // tiempo = duración de partículas
     }
 
     private void OnDrawGizmosSelected()
     {
-        // GroundCheck Gizmo
         if (groundCheck != null)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
 
-        // WallCheck Gizmo
         if (wallCheck != null)
         {
             Gizmos.color = Color.blue;
