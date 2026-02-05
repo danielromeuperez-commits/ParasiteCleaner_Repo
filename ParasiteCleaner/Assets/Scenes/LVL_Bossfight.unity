@@ -566,11 +566,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4861254138958012880, guid: 31f09609b33f7bf42a6e97a9b07b302c, type: 3}
       propertyPath: m_GravityScale
-      value: 5
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5283788070237279354, guid: 31f09609b33f7bf42a6e97a9b07b302c, type: 3}
+      propertyPath: speed
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5283788070237279354, guid: 31f09609b33f7bf42a6e97a9b07b302c, type: 3}
       propertyPath: jumpForce
-      value: 40
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 5283788070237279354, guid: 31f09609b33f7bf42a6e97a9b07b302c, type: 3}
       propertyPath: projectile
